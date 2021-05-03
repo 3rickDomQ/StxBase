@@ -1,0 +1,87 @@
+{% extends "master/backoffice_master_in.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block css %}
+	<!--   Site Files   -->
+    <link rel="stylesheet" href="{% static 'libs/enjoyhint-master/enjoyhint.css' %}">
+	<link rel="stylesheet" href="{% static 'site/backoffice_home.min.css' %}?version={{ APP.version }}">
+
+{% endblock css %}
+
+{% block content %}
+
+<div class="card text-center">
+    <div class="card-body">
+        <p class="card-text">
+            <h1>
+                Hola {% if USER.name %}{{USER.name}}{% else %}{{USER.email}}{% endif %}!
+            </h1>
+            <p>
+                <h4>
+                    Bienvenido al panel de administración
+                </h4>
+            </p>
+        </p>
+    </div>
+</div>
+
+{% if USER.position_name == 'ADMINISTRADOR' or USER.is_superuser %}
+    <div class="card">
+        <div class="card-body text-center">
+            <h3>
+                ¿Que deseas hacer?
+            </h3>
+            <div class="first-actions">
+
+                <a href="{% url 'backoffice:campaign-new' %}"
+                class="first-action first-step">
+                    <div class="first-action-body">
+                        <i class="lni lni-world"></i>
+                    </div>
+
+                    <div class="first-action-footer">
+                        Crear una Candidatura
+                    </div>
+                </a>
+
+                <a href="{% url 'backoffice:user-new' %}"
+                class="first-action second-step">
+                    <div class="first-action-body">
+                        <i class="lni lni-users"></i>
+                    </div>
+
+                    <div class="first-action-footer">
+                        Crear un Usuario
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+
+{% comment %} <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-3 pb-4">
+    <div>
+        <h2 class="pb-2 fw-bold">Dashboard</h2>
+        <h5 class="op-7 mb-2">Premium Bootstrap 4 Admin Dashboard</h5>
+    </div>
+    <div class="ml-md-auto py-2 py-md-0">
+        <a href="#" class="btn btn-info btn-border btn-round mr-2">Manage</a>
+        <a href="#" class="btn btn-primary btn-round">Add Customer</a>
+    </div>
+</div> {% endcomment %}
+
+{% endblock content %}
+
+{% block scripts %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/kineticjs/5.2.0/kinetic.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"></script>
+
+    <script src="{% static 'libs/enjoyhint-master/enjoyhint.min.js' %}"></script>
+
+    <!--   Site Files   -->
+	<script src="{% static 'site/backoffice_home.min.js' %}?version={{ APP.version }}"></script>
+
+{% endblock scripts %}

@@ -1,0 +1,58 @@
+{% extends "master/public_master.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% load tags_feedback %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'site/public_campaigns.min.css' %}?version={{ APP.version }}">
+{% endblock css %}
+
+{% block content %}
+
+<div class="list">
+
+    {% tag_feedback_messages messages %}
+
+    <div class="list-header">
+        Candidaturas
+    </div>
+
+    <div class="list-body">
+        {% for record in records %}
+        <div class="candidate mx-4">
+            <div class="candidate-image">
+                <a href="{% url 'public:campaign-retrieve' record.pk %}"
+                class="image-square">
+                    {% if record.image %}
+                        <img alt="100%x280" src="{{record.image.url}}">
+                    {% else %}
+                        <img alt="100%x280" src="{% static 'images/generic/person.png' %}">
+                    {% endif %}
+                </a>
+            </div>
+            <div class="candidate-body">
+                <div class="body-title">
+                    {{record.name}}
+                </div>
+                <div class="body-text mt-4 mb-4">
+                    {{record.description}}
+                </div>
+                <div class="body-actions">
+                    <a class="button button-green"
+                    href="{% url 'public:campaign-retrieve' record.pk %}">
+                        CONOCE MÁS
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock content %}
+
+{% block scripts %}
+	<script src="{% static 'site/public_campaigns.min.js' %}?version={{ APP.version }}"></script>
+
+{% endblock scripts %}

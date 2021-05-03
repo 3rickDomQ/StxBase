@@ -1,0 +1,8 @@
+.colum-actions {
+    display: flex;
+    flex-direction: row;
+
+    .btn:first-child {
+        margin-right: .5rem;
+    }
+}

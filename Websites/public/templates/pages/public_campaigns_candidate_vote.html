@@ -1,0 +1,99 @@
+{% extends "master/public_master.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% load tags_feedback %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'site/public_campaigns_candidate_vote.min.css' %}?version={{ APP.version }}">
+{% endblock css %}
+
+{% block content %}
+
+    <div class="campaign-header">
+        {% comment %} <div class="campaign-header-left">
+            <a href="#" class="button button-white-outline">
+                COMPARTIR PERFIL
+            </a>
+        </div> {% endcomment %}
+        <div class="campaign-header-middle">
+            <div class="campaign-name">
+                <span class="campaign-name-icon">
+                    <img src={% static 'images/decoration/ubicacion.png' %} >
+                </span>
+                <span class="campaign-name-text">
+                    {{data.campaign.name}}
+                </span>
+            </div>
+        </div>
+        <div class="campaign-header-right">
+            <a href="{% url 'public:candidates' %}" class="button button-white-outline">
+                VER MÁS CANDIDATOS
+            </a>
+        </div>
+    </div>
+
+    <div class="campaign">
+        <div class="campaign-body">
+            <div class="candidate">
+                <div class="candidate-header">
+                    <div class="header-leyend">
+                        ¡Tu apoyo para {{data.campaign.name}}!
+                    </div>
+                    <div class="header-image">
+                        <div class="image-round">
+                        {% if data.candidate.profile.photo %}
+                            <img class="image-round" alt="100%x280" src="{{data.candidate.profile.photo.url}}">
+                        {% else %}
+                            <img class="image-round" alt="100%x280" src="{% static 'images/generic/person.png' %}">
+                        {% endif %}
+                        </div>
+                    </div>
+                    <div class="header-description">
+                        {{data.candidate.name}}
+                    </div>
+                </div>
+                <form action="" method="post" class="candidate-body" id="form-vote">
+                    {% csrf_token %}
+
+                    {% tag_feedback_messages messages %}
+
+                    <div class="body-leyend">
+                        Favor de proporcionar un correo electrónico para registrar tu apoyo
+                    </div>
+
+                    <div class="body-email">
+                        <input class="form-control input-email" name="email" id="email" required placeholder="Necesitamos tu correo electrónico" style="max-width: 300px; margin: 0 auto;" />
+                    </div>
+
+                    <div class="body-actions">
+                        <button
+                        data-sitekey="6LdZBHwaAAAAAGTO3Wp-ZJvuhHbetgQifaNgWv9B"
+                        data-callback='onSubmit'
+                        data-action='submit'
+                        class="button button-green g-recaptcha">
+                            Apoyar
+                        </button>
+                        {% comment %} <button type="submit">Apoyar2</button> {% endcomment %}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {% comment %} 6LcRbmgaAAAAAOomzKMzSSN9BE4Cs05RRop94Ne8 {% endcomment %}
+{% endblock content %}
+
+{% block scripts %}
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+    function onSubmit(token) {
+
+        var input = document.getElementById('email')
+        if (input.value) {
+            console.log(token)
+            document.getElementById("form-vote").submit();
+        }
+    }
+    </script>
+    <script src="{% static 'site/public_campaigns_candidate_vote.min.js' %}?version={{ APP.version }}"></script>
+{% endblock scripts %}

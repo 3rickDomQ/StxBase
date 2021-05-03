@@ -1,0 +1,80 @@
+{% extends "master/backoffice_master_out.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% load tags_controls %}
+{% load tags_feedback %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'site/backoffice_pass_change_confirm.min.css' %}?version={{ APP.version }}">
+{% endblock css %}
+
+{% block content %}
+
+<div class="container">
+    <div class="card">
+        <div class="row no-gutters card-wrap">
+            <div class="col-md-6">
+                <div class="card-body">
+                {% if validlink %}
+                    <h1 class="card-body-title">Activación de cuenta</h1>
+                    <h4 class="card-body-subtitle">
+                        Para activar su cuenta, favor de complementar sus datos y especificar su contraseña.
+                    </h4>
+                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                      <strong>Importante:</strong><br>Tu contraseña debe cumplir con lo siguiente:<br>
+                        <ul>
+                            <li>Tener 1 Mayúscula</li>
+                            <li>Contener 1 número</li>
+                            <li>Al menos 1 caracter especial ([@_!#$%^&*()<>?|}{~:]).</li>
+                            <li>Sin espacios en blanco</li>
+                        </ul>
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                      </button>
+                    </div>
+                    <form action="" method="post" enctype="multipart/form-data"> {% csrf_token %}
+                        {% tag_feedback_messages messages %}
+                        {% tag_feedback_form_errors form %}
+
+                        <p>
+                            {% tag_control_field_text form.password1 _size="12" %}
+                            {% tag_control_field_text form.password2 _size="12" %}
+                        </p>
+
+                        <div class="form-group">
+                            <button type="submit"
+                            class="btn btn-lg btn-primary btn-block text-uppercase mb-4">
+                                Continuar
+                            </button>
+                        </div>
+                    </form>
+                {% else %}
+                    <h1 class="card-body-title">
+                        ¡Link Inválido!
+                    </h1>
+                    <h4 class="card-body-subtitle">
+                        Si aún no has activado tu cuenta, favor de contactar con un administrador del sistema.
+                    </h4>
+
+                    <div class="form-group">
+                        <a href="{% url 'backoffice:password-change-request' %}"
+                        class="btn btn-lg btn-primary btn-border btn-block text-uppercase mb-4">
+                            Recuperar contraseña
+                        </a>
+
+                        <a href="{% url 'backoffice:login' %}"
+                        class="btn btn-lg btn-primary btn-block text-uppercase mb-4">
+                            Ir a login
+                        </a>
+                    </div>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{% static 'site/backoffice_pass_change_confirm.min.js' %}?version={{ APP.version }}"></script>
+{% endblock scripts %}

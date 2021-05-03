@@ -1,0 +1,61 @@
+@import '../../../share/styles/bases/colors';
+@import '../../../share/styles/layouts/breakpoints';
+@import '../~sass-mq';
+
+.first-actions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 2rem;
+
+    @include mq($from: tablets) {
+        flex-direction: row;
+    }
+
+
+    .first-action {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 2rem;
+
+        @include mq($from: tablets) {
+            margin-bottom: 0;
+        }
+
+        &-body {
+            background-color: $color-primary;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+
+            color: white;
+            font-size: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: .75rem;
+
+            &:hover {
+                background-color: $color-primary;
+            }
+        }
+
+        &-footer {
+            display: flex;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+    }
+
+}
+
+.next-btn {
+    font-size: 1rem;
+}
+
+.exit-btn {
+    padding: 0 .5rem;
+}

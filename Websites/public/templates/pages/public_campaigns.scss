@@ -1,0 +1,72 @@
+@import '../../../share/styles/layouts/breakpoints';
+
+@import '../styles/bases/colors';
+
+@import '../styles/components/image_square';
+@import '../styles/components/button';
+
+
+.list {
+    display: flex;
+    flex-direction: column;
+
+    &-header {
+        font-size: 2rem;
+        color: #008d79;
+        font-weight: 700;
+        padding: 2rem 1rem;
+        box-sizing: border-box;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        @include mq($from: tablets) {
+            margin-bottom: 2rem;
+        }
+    }
+
+    &-body {
+        display: flex;
+        flex-direction:  column;
+
+        @include mq($from: tablets) {
+            flex-direction:  row;
+            justify-content: space-around;
+        }
+    }
+}
+
+.candidate {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+
+    @include mq($from: tablets) {
+        margin-bottom: 0;
+    }
+
+    &-image {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &-body {
+        .body-title {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: $color-brand-main;
+            margin-bottom: .7rem;
+        }
+
+        .body-actions {
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

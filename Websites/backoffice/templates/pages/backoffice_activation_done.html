@@ -1,0 +1,40 @@
+{% extends "master/backoffice_master_out.html" %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'site/backoffice_activation_done.min.css' %}?version={{ APP.version }}">
+{% endblock css %}
+
+{% block content %}
+
+<div class="authincation h-100">
+    <div class="container h-100">
+        <div class="row justify-content-center h-100 align-items-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-body-title text-center">
+                            ¡Gracias por confirmar tu participación!
+                        </h1>
+                        <h4 class="card-body-subtitle text-center">
+                            Ahora puedes ir a login y acceder con tu correo y contraseña.
+                        </h4>
+
+                        <div class="form-group">
+                            <a href="{% url 'backoffice:login' %}" type="submit"
+                            class="btn btn-lg btn-primary btn-block text-uppercase mb-4">
+                                Ir a login
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{% static 'site/backoffice_activation_done.min.js' %}?version={{ APP.version }}"></script>
+{% endblock scripts %}

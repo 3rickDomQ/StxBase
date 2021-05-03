@@ -1,0 +1,6 @@
+.page-breadcrumb {
+    margin-bottom: 0 !important;
+    @include mq($from: tablets) {
+        margin-bottom: 15px !important;
+    }
+}

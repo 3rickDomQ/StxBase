@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+	    <title>Notification</title>
+        <style>
+            body {
+                font-size: 16px;
+                font-family: sans-serif;
+                font-weight: 400;
+                background-size: 100% auto;
+                background-color: white;
+
+                -moz-osx-font-smoothing: grayscale;
+                -webkit-font-smoothing: antialiased;
+                text-rendering: optimizeLegibility;
+            }
+
+            .wrapper {
+                border-radius: 5px;
+
+                -webkit-box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+                box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+
+            }
+
+                .main {
+                    width: 100%;
+                    border-radius: 5px 5px 0 0;
+                }
+
+                    .bar-main-out {
+                        background: #0e2995;
+
+                        font-size: 1.5em;
+                        font-weight: 700;
+                        padding-top: .4em;
+                        padding-bottom: .4em;
+
+                        text-align: center;
+                        color: white;
+                        border-radius: 5px 5px 0 0;
+                        margin-bottom: 1em;
+                    }
+
+                    .card-msg {
+                        width: 100%;
+                        border-radius: 4px;
+
+                        padding-top: 1em;
+                        padding-bottom: 2em;
+
+                        margin-bottom: 1em;
+                    }
+
+                        .card-msg-body {
+                            width: 100%;
+                            margin-bottom: 1em;
+                            text-align: center;
+                            box-sizing: border-box;
+
+                        }
+                            .card-msg-title {
+                                font-size: 1.5em;
+                                font-weight: 700;
+                                margin-bottom: .5em;
+                                padding: 0 .3em;
+                                color: #433f4a;
+                                box-sizing: border-box;
+                            }
+                            .card-msg-subtitle {
+                                color: rgb(106, 106, 106);
+                                font-size: 1em;
+                                font-weight: 600;
+                                padding: 0 .5em;
+                                box-sizing: border-box;
+                            }
+                                .card-msg-subtitle span {
+                                    color: black;
+                                    font-size: 1.3em;
+                                }
+
+                        .card-msg-footer {
+                            text-align: center;
+                            padding: 1em 0 .5em 0;
+                        }
+
+                            .btn {
+                                color: #DD4712;
+                                font-size: 1em;
+                                font-weight: 600;
+                            }
+                            .btn:visited {
+                                color: #DD4712;
+                            }
+
+                .footer {
+                    border-radius: 0 0 5px 5px;
+                    padding: 1em .5em;
+                    text-align: center;
+                    border-top: 1px solid #d4d9dd;
+                    font-size: .8em;
+                    font-weight: 500;
+                }
+
+                    .footer a {
+                        color: black !important;
+                        font-weight: 700;
+                        font-size: 1.2em;
+                        text-decoration: none;
+                    }
+                    .footer a:visited {
+                        color: black !important;
+                    }
+
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <main class="main" id="main">
+                <header class="header">
+                    <div class="bar-main-out">
+                        {{app}}
+                    </div>
+                </header>
+
+                <div class="content">
+                    <div class="card-msg">
+                        <div class="card-msg-body">
+                            <div class="card-msg-title">
+                                Hola {{email}},
+                            </div>
+                            <div class="card-msg-subtitle">
+                                Se adjunta archivo con X para tu revisión y firma.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+
+            <footer class="footer">
+                Powered by <a href="https://pando.org.mx/">Pando</a>
+            </footer>
+        </div>
+    </body>
+</html>
+
+

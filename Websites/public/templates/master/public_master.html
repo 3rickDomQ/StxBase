@@ -1,0 +1,280 @@
+{% load static %}
+{% load tags_feedback %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="canonical" href="https://candidatxideal.org" />
+    <meta name="robots" content="index follow">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Candidatx Ideal es una iniciativa ciudadana independiente. A través de herramientas digitales conoces, evalúas y eliges a los ciudadanos que te representarán en la contienda electoral. Conócela y corre la voz!!!">
+    <meta name="author" content="Pando Servicios Digitales®">
+
+    <meta property="og:title" content="Candidatx Ideal" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://candidatxideal.org" />
+    <meta property="og:image" content="https://static.pando.org.mx/assets/images/Candidatx_Ideal.png" />
+    <meta property="og:description" content="Candidatx Ideal es una iniciativa ciudadana independiente. A través de herramientas digitales conoces, evalúas y eliges a los ciudadanos que te representarán en la contienda electoral. Conócela y corre la voz!!!" />
+    <meta property="og:video" content="https://static.pando.org.mx/assets/videos/Candidatx_Ideal.mp4" />
+    <meta property="og:video:type" content="video/mp4" />
+    <meta property="og:video:width" content="1920" />
+    <meta property="og:video:height" content="1080" />
+
+    {% block meta %}
+
+    {% endblock meta %}
+
+	<title>{{page_name}}</title>
+
+	<!-- Favicon icons -->
+	<link rel="icon" type="image/png" sizes="32x32" href="https://static.pando.org.mx/assets/images/ci/favicon.ico">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://static.pando.org.mx/assets/images/ci/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://static.pando.org.mx/assets/images/ci/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://static.pando.org.mx/assets/images/ci/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="https://static.pando.org.mx/assets/images/ci/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="icon" type="image/png" sizes="192x192"  href="https://static.pando.org.mx/assets/images/ci/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="384x384"  href="https://static.pando.org.mx/assets/images/ci/android-chrome-384x384.png">
+
+	<link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
+    <link href="{% static 'template/vendor/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet">
+    <link href="{% static 'template/vendor/perfect-scrollbar/css/perfect-scrollbar.css' %}" rel="stylesheet">
+	<link href="{% static 'template/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'site/public_master.min.css' %}?version={{ APP.version }}" rel="stylesheet">
+
+    {% block css %}
+
+    {% endblock css %}
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://static.pando.org.mx/assets/css/custom.css">
+
+    <!-- Moosend -->
+    <script>
+    //load TrackerJS
+    !function(t,n,e,o,a){function d(t){var n=~~(Date.now()/3e5),o=document.createElement(e);o.async=!0,o.src=t+"?ts="+n;var a=document.getElementsByTagName(e)[0];a.parentNode.insertBefore(o,a)}t.MooTrackerObject=a,t[a]=t[a]||function(){return t[a].q?void t[a].q.push(arguments):void(t[a].q=[arguments])},window.attachEvent?window.attachEvent("onload",d.bind(this,o)):window.addEventListener("load",d.bind(this,o),!1)}(window,document,"script","//cdn.stat-track.com/statics/moosend-tracking.min.js","mootrack");
+    //tracker has to be initialized otherwise it will generate warnings and wont sendtracking events
+    mootrack('init', 'ea120cee805047f284268b6e64d062a7');
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VBR2RKDLQM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VBR2RKDLQM');
+      gtag('config', 'UA-190798398-1');
+    </script>
+</head>
+<body>
+    {% block others %}
+
+        <div id="fb-root"></div>
+        <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+    {% endblock others %}
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+	<!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper" id="wrapper">
+
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        {% comment %} <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <a href="{% url 'public:landing' %}" class="header-left">
+                            <img
+                                src="{% static 'images/logos/pando-03.png' %}"
+                                class="img-fluid logo"
+                                alt="Responsive image"
+                            />
+                        </a>
+
+                        <ul class="navbar-nav header-right">
+							<li class="nav-item right-sidebar">
+                                <a class="nav-link bell ai-icon entry-icon"
+                                href="{% url 'backoffice:login' %}">
+                                    <i class="lni lni-user "></i>
+                                </a>
+							</li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div> {% endcomment %}
+        <div class="alert alert-info alert-dismissible fade show text-center" role="alert">
+            <strong>Aviso:</strong> El proceso de auto-postulación se cerrará el <strong>lunes 22 de marzo, 2021 a las 11:59:59 PM (Tiempo Central)</strong>.<br>Puedes postular tu candidatura o la de quien consideres adecuado en la sección de <a href="{% url 'public:participa' %}"><strong>Participa</strong></a>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="d-flex justify-content-end">
+            <a href="https://www.facebook.com/CandidatxIdeal" class="social-opt" target="_blank" rel="noopener noreferrer"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+        
+            <a href="https://twitter.com/CandidatxI" class="social-opt" target="_blank" rel="noopener noreferrer"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+        
+            <a href="https://www.instagram.com/candidatxideal/" class="social-opt" target="_blank" rel="noopener noreferrer"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        
+            <a class="login" href="{% url 'backoffice:login' %}"><i class="fa fa-user-circle" aria-hidden="true"></i> <span> Acceder</span></a>
+        </div>
+        <header>
+            <nav class="navbar navbar-expand-md navbar-light bg-light">
+                <a href="{% url 'public:landing' %}" class="nav-brand">
+                    <img
+                        src="https://static.pando.org.mx/assets/images/ci/logo_ci.png"
+                        alt="Logo principal Candidate Ideal "
+                    />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+
+                    <ul class="navbar-nav mr-auto"> 
+                    </ul>
+                    <ul class="navbar-nav last">
+                        <li class="nav-item"><a href="{% url 'public:iniciativa' %}" class="nav-link blue">INICIATIVA</a></li>
+                        <li class="nav-item"><a href="{% url 'public:proceso' %}" class="nav-link red">PROCESO</a></li>
+                        <li class="nav-item"><a href="{% url 'public:participa' %}" class="nav-link green">PARTICIPA</a></li>
+                        <li class="nav-item"><a href="{% url 'public:campaigns' %}" class="nav-link black">CANDIDATURAS</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <!-- row -->
+			<div class="container-fluid">
+            {% block content %}
+            {% endblock content %}
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="foot text-center container-fluid">
+            <div class="row mb-4">
+                <div class="col">
+                    <a data-mooform-id="3a71c982-7726-4a95-96e6-593729363410" href="#" class="text bulletin">Sucríbete a nuestro boletín</a>
+                </div>
+                <div class="col">
+                    <a class="ideal-logo">
+                        <img src="{% static 'images/logos/logo_candidatx_ideal_texto_blanco.png' %}" alt="Candidate Ideal logo">
+                    </a>
+                </div>
+                <div class="col">
+                    <span class="text">un servicio de</span>
+                    <a href="https://pando.org.mx/" class="pando-logo" target="_blank" rel="noopener noreferrer">
+                        <img src="{% static 'images/logos/logo_pando_blanco.png' %}" alt="pando-logo" />
+                    </a>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col">
+                    <a href="{% url 'public:privacidad' %}" class="text bulletin">Aviso de Privacidad</a>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+
+    </div>
+
+    <!-- Required vendors -->
+    <script src="{% static 'template/vendor/global/global.min.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script src="{% static 'template/vendor/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'template/vendor/perfect-scrollbar/js/perfect-scrollbar.min.js' %}"></script>
+    <script src="{% static 'template/js/custom.min.js' %}"></script>
+    <script src="{% static 'site/public_master.min.js' %}?version={{ APP.version }}"></script>
+    <script type="text/javascript" src="https://embed.typeform.com/embed.js"></script>
+    <script src="https://static.pando.org.mx/assets/js/custom.js"></script>
+
+    <script>
+    (function($) {
+
+        var direction =  getUrlParams('dir');
+        if(direction != 'rtl')
+        {direction = 'ltr'; }
+
+        var dezSettingsOptions = {
+            typography: "roboto",
+            version: "light",
+            layout: "Vertical",
+            headerBg: "color_3",
+            navheaderBg: "color_3",
+            sidebarBg: "color_3",
+            sidebarStyle: "mini",
+            sidebarPosition: "fixed",
+            headerPosition: "fixed",
+            containerLayout: "full",
+            direction: direction
+        };
+
+        new dezSettings(dezSettingsOptions);
+
+        jQuery(window).on('resize',function(){
+            new dezSettings(dezSettingsOptions);
+        });
+
+    })(jQuery);
+	</script>
+    <!-- Omnisend -->
+    <script type="text/javascript">
+        window.omnisend = window.omnisend || [];
+        omnisend.push(["accountID", "6054ecfe99f0b705daab2417"]);
+        omnisend.push(["track", "$pageViewed"]);
+        !function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="https://omnisrc.com/inshop/launcher-v2.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}();
+    </script>
+    {% block scripts %}
+    {% endblock scripts %}
+</body>
+</html>

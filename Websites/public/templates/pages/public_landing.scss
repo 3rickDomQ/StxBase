@@ -1,0 +1,211 @@
+@import '../../../share/styles/layouts/breakpoints';
+
+@import '../styles/bases/colors';
+@import '../styles/components/text';
+@import '../styles/components/button';
+@import '../styles/components/bullet';
+
+.section-main {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    align-items: center;
+
+    &-body {
+        display: flex;
+        flex-direction: column;
+
+        @include mq($from: tablets) {
+            flex-direction: row;
+            max-width: 90%;
+        }
+
+        @include mq($from: desktops) {
+            max-width: 80%;
+        }
+
+        .resume {
+            padding: 2rem;
+            width: 100%;
+
+            @include mq($from: tablets) {
+                width: 50%;
+            }
+
+            .card-text {
+                span {
+
+                    font-weight: 700;
+                    color: $color-text-regular;
+
+                    @include mq($from: tablets) {
+                        font-size: 1rem;
+                    }
+
+                    @include mq($from: desktops) {
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+            .box-shadow{
+                box-shadow:
+                  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+                  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+                  0 12.5px 10px rgba(0, 0, 0, 0.06),
+                  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+                  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+                  0 100px 80px rgba(0, 0, 0, 0.12)
+            }
+        }
+
+        .actions {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            width: 100%;
+
+            @include mq($from: tablets) {
+                width: 50%;
+            }
+
+            .card-marques {
+                border-radius: 10px;
+                background-color: $color-brand-main;
+                padding: 2rem 1rem;
+                width: 100%;
+
+                @include mq($from: tablets) {
+                    max-width: 20rem;
+                    max-height: 15rem;
+                }
+
+                display: flex;
+                flex-direction: column;
+
+                &-header {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+
+                    .label {
+                        color: #fff;
+                        font-size: 1rem;
+                        font-weight: 600;
+                        text-align: center;
+                    }
+
+                    .text {
+                        color: #fff;
+                        font-size: 1.5rem;
+                        font-weight: 600;
+                        text-align: center;
+                    }
+                }
+
+                &-body {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 1rem;
+                    height: 60%;
+
+                    & > a:first-child {
+                        margin-bottom: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.section {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    align-items: center;
+
+    &-header {
+        font-size: 1.25rem;
+        color: $color-brand-main;
+        font-weight: 600;
+        margin-bottom: 1rem;
+
+        @include mq($from: desktops) {
+            font-size: 1.5rem;
+        }
+    }
+
+    &-body {
+        display: flex;
+        flex-direction: column;
+
+        @include mq($from: tablets) {
+            flex-direction: row;
+            max-width: 90%;
+        }
+
+        @include mq($from: desktops) {
+            max-width: 80%;
+        }
+    }
+}
+
+.steps {
+    display: flex;
+    flex-direction: column;
+
+    @include mq($from: tablets) {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .step-option {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        margin-bottom: 1rem;
+
+        @include mq($from: tablets) {
+            margin-bottom: 0;
+        }
+
+        & > div:first-child {
+            margin-right: 1rem;
+        }
+
+        .info {
+            width: 60%;
+        }
+    }
+}
+
+.diagram {
+    flex-direction: row;
+    justify-content: center;
+
+    img {
+        width: 100%;
+        height: auto;
+
+        @include mq($from: tablets) {
+            width: 100%;
+        }
+    }
+    .cta-process{
+        color: #fafafa;
+        background-color: #008d79;
+        border-color: #008d79;
+        width: 100%;
+        min-width: 280px;
+        max-width: 280px;
+        margin: 0 auto;
+        display: block;
+        &:hover{
+            background-color: #fafafa;
+            border-color: #008d79;
+            color: #008d79;
+        }
+    }
+}

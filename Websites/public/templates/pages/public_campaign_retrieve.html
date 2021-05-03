@@ -1,0 +1,294 @@
+{% extends "master/public_master.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% load tags_feedback %}
+{% load tags_public_data %}
+
+{% block meta %}
+
+    <meta property="og:url"           content="{{ request.path }}" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="{{record.name}}" />
+    <meta property="og:description"   content="{{record.description}}" />
+
+    {% if record.image %}
+        <meta property="og:image" content="{{record.image.url}}" />
+    {% else %}
+        <meta property="og:image" content="{% static 'images/generic/campaign.png' %}" />
+    {% endif %}
+
+{% endblock meta %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'site/public_campaign_retrieve.min.css' %}?version={{ APP.version }}">
+
+{% endblock css %}
+
+{% block content %}
+
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <input type="hidden" id="campaign_input" value={{record.id|safe}}>
+
+    <div class="campaign-header">
+        <div class="campaign-header-left">
+            <a href="{% url 'public:candidates' %}" class="button button-white-outline">
+                VER MÁS CANDIDATOS
+            </a>
+        </div>
+        <div class="campaign-header-middle">
+            <div class="campaign-name">
+                <span class="campaign-name-icon">
+                    <img src={% static 'images/decoration/ubicacion.png' %} >
+                </span>
+                <span class="campaign-name-text">
+                    {{record.name}}
+                </span>
+            </div>
+        </div>
+        <div class="campaign-header-right">
+            <div
+            class="fb-share-button"
+            data-size="large"
+            data-href="{{ request.path }}"
+            data-layout="button_count">
+            </div>
+            <div class="btn">
+                <a class="" href="javascript:window.location=waCurrentPage();">Comparte en Whatsapp <i class="fa fa-whatsapp fa-4x"></i></a>
+                <script>
+                    waCurrentPage = function() {return encodeURI("whatsapp://send?text=Revisa esta información y participa: " + 'https://' + window.location.hostname + window.location.pathname);}
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <div class="campaign-detail">
+        <div class="text">
+            {% if record.description %}
+                <p>{{record.description}}</p>
+            {% else %}
+                <p>Estamos actualizando la información de la campaña</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="campaign">
+        <div class="campaign-body">
+            <div class="wrap-title">
+                Precandidatos participantes
+            </div>
+            <div class="wrap-body">
+                {% for candidate in record.candidates.all %}
+                    <div  class="card-image">
+                        <a class="card-image-body" href="{% url 'public:campaign-candidate' record.pk candidate.id %}">
+                            <div class="image-round">
+                            {% if candidate.profile.photo %}
+                                <img class="image-round" alt="100%x280" src="{{candidate.profile.photo.url}}" />
+                            {% else %}
+                                <img class="image-round" alt="100%x280" src="{% static 'images/generic/person.png' %}" />
+                            {% endif %}
+                            </div>
+                        </a>
+                        <div class="card-image-footer">
+                            <span class="candidate-name">
+                                {{candidate.name }}
+                            </span>
+                            {% tag_public_data_votes record.pk candidate.id %}
+                            <a href="{% url 'public:campaign-candidate-vote' record.id candidate.id %}" class="button button-white">
+                                APOYA
+                            </a>
+                        </div>
+                    </div>
+
+                {% empty %}
+                    <h1> Aun no se tienen candidatos.</h1>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="campaign-detail">
+        <div class="campaign-detail-left">
+            <div class="title">
+                Lo que más necesita tu comunidad
+            </div>
+            <div class="instrucciones">
+                La comunidad considera que los temas más importantes por mejorar en tu localidad son:
+            </div>
+            <div class="chart">
+                <canvas id="myChart"></canvas>
+            </div>
+            <div class="files">
+            {% for file in record.files.all %}
+                <a href={{file.file.url}}
+                target="_blank"
+                type="button" class="button button-green">
+                    Descargar: {{file.description}}
+                </a>
+            {% endfor %}
+            </div>
+        </div>
+        <div class="campaign-detail-right">
+            {% tag_feedback_messages messages %}
+
+            <div class="whatsneed">
+                <div class="whatsneed-wrapper">
+                    <div class="whatsneed-title">
+                        Opina
+                    </div>
+                    <div class="whatsneed-body">
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Problemática</label>
+                                <select class="form-control" name="campaign_kpi" required>
+                                    <option value="">-- Selecciona una opción --</option>
+                                    {% for kpi in record.kpis.all %}
+                                    <option value="{{kpi.id}}">{{kpi.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <small id="emailHelp" class="form-text text-muted">
+                                    Selecciona el problema que pienses que tenga mayor importancia en tu comunidad.
+                                </small>
+                            </div>
+                            <div class="form-group">
+                                <label>Código Postal</label>
+                                <input type="number" class="form-control" name="postal_code" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Edad</label>
+                                <input type="number" class="form-control" name="age" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Género</label>
+                                <select class="form-control" name="gender" required>
+                                    <option value="mujer">Femenino</option>
+                                    <option value="hombre">Masculino</option>
+                                    <option value="nd">Prefiero no decir</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" class="form-control" name="email" required>
+                            </div>
+                            <div class="form-actions">
+                                <button
+                                type="submit"
+                                class="button button-green">
+                                    Enviar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    {% if record.organizations.count > 0 or record.collaborators.count > 0%}
+    <div class="persons">
+        <div class="persons-title">
+            Miembros del Comité
+        </div>
+        <div class="persons-body row">
+            {% for community in record.organizations.all %}
+                <a href="{% url 'public:person-retrieve' community.id %}"
+                class="card-image">
+                    <div class="card-image-body">
+                        <div class="image-round">
+                        {% if community.profile.photo %}
+                            <img alt="100%x280" src="{{community.profile.photo.url}}">
+                        {% else %}
+                            <img alt="100%x280" src="{% static 'images/generic/person.png' %}">
+                        {% endif %}
+                        </div>
+                    </div>
+                    <div class="card-image-footer">
+                        <span class="other-name">
+                            {{community.name}}
+                        </span>
+                        <span class="leyend-name">
+                            Organizador
+                        </span>
+                    </div>
+                </a>
+            {% endfor %}
+
+            {% for colaborator in record.collaborators.all %}
+                <a href="{% url 'public:person-retrieve' colaborator.id %}"
+                class="card-image">
+                    <div class="card-image-body">
+                        <div class="image-round">
+                        {% if colaborator.profile.photo %}
+                            <img class="image-round" alt="100%x280" src="{{colaborator.profile.photo.url}}">
+                        {% else %}
+                            <img class="image-round" alt="100%x280" src="{% static 'images/generic/person.png' %}">
+                        {% endif %}
+                        </div>
+                    </div>
+                    <div class="card-image-footer">
+                        <span class="other-name">
+                            {{colaborator.name}}
+                        </span>
+                        <span class="leyend-name">
+                            Colaborador
+                        </span>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if record.evaluators.count > 0 %}
+    <div class="persons">
+        <div class="persons-title">
+            Expertos Evaluadores
+        </div>
+        <div class="persons-body row">
+            {% for evaluator in record.evaluators.all %}
+                <a href="{% url 'public:person-retrieve' evaluator.id %}"
+                class="card-image">
+                    <div class="card-image-body">
+                        <div class="image-round">
+                        {% if evaluator.profile.photo %}
+                            <img class="image-round" alt="100%x280" src="{{evaluator.profile.photo.url}}">
+                        {% else %}
+                            <img class="image-round" alt="100%x280" src="{% static 'images/generic/person.png' %}">
+                        {% endif %}
+                        </div>
+                    </div>
+                    <div class="card-image-footer">
+                        <span class="other-name">
+                        {{evaluator.name}}
+                        </span>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+{% endblock content %}
+
+{% block scripts %}
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+
+    <!--   Site Files   -->
+	<script src="{% static 'site/public_campaign_retrieve.min.js' %}?version={{ APP.version }}"></script>
+
+{% endblock scripts %}

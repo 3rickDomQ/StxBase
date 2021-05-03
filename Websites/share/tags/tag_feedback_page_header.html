@@ -1,0 +1,75 @@
+<div class="row page-titles mx-0">
+    <div class="col-sm-6 p-md-0">
+        <div class="welcome-text">
+            <h4 class="brand-main-color">{{title}}</h4>
+        </div>
+    </div>
+    {% if breadcrumb %}
+    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% url 'backoffice:home' %}" class="breadcrumb-icon">
+                    <i class="lni lni-home"></i>
+                </a>
+            </li>
+            {% for item in breadcrumb %}
+            <li class="breadcrumb-item active"><a href="{{item.url}}">{{item.label}}</a></li>
+            {% endfor %}
+        </ol>
+    </div>
+    {% endif %}
+
+    {% if toolbar %}
+    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+        {% for item in toolbar %}
+            <a href="{{item.url}}" class="btn btn-sm btn-success btn-round mr-2">
+                {{item.label}}
+            </a>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+
+{% comment %} <div class="tag-page-header">
+    <div class="tag-page-header-left">
+        <div class="page-header">
+            <h4 class="page-title">{{title}}</h4>
+
+            {% if breadcrumb %}
+
+                <ul class="breadcrumbs">
+                    <li class="nav-home">
+                        <a href="/">
+                            <i class="flaticon-home"></i>
+                        </a>
+                    </li>
+
+                    {% for item in breadcrumb %}
+
+                    <li class="separator">
+                        <i class="flaticon-right-arrow"></i>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{item.url}}">{{item.label}}</a>
+                    </li>
+
+                    {% endfor %}
+
+                </ul>
+
+            {% endif %}
+        </div>
+    </div>
+
+    {% if toolbar %}
+    <div class="tag-page-header-rigth ml-md-auto py-2 py-md-0">
+        {% for item in toolbar %}
+            <a href="{{item.url}}" class="btn btn-sm btn-success btn-round mr-2">
+                {{item.label}}
+            </a>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+</div> {% endcomment %}

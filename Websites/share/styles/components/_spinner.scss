@@ -1,0 +1,44 @@
+.spinner {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #ffffffcc;
+    z-index: 999999;
+
+    &-figure {
+        width: 50px;
+        height: 50px;
+
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+
+        border: 5px solid #ccc;
+        border-top-color: $color-primary;
+        border-radius: 100%;
+
+        -webkit-animation: round 2s linear infinite;
+        animation: round 2s linear infinite;
+    }
+}
+
+@-webkit-keyframes round {
+    from{ transform: rotate(0deg)}
+    to {transform: rotate(360deg)}
+}
+
+@-moz-keyframes round {
+    from{ transform: rotate(0deg)}
+    to {transform: rotate(360deg)}
+}
+
+@keyframes round {
+    from{ transform: rotate(0deg)}
+    to {transform: rotate(360deg)}
+}

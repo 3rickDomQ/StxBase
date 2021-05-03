@@ -1,0 +1,99 @@
+{% extends "master/public_master.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'site/public_proceso.min.css' %}?version={{ APP.version }}">
+
+{% endblock css %}
+
+{% block content %}
+
+    <div class="content-wrap">
+        <div class="info">
+            <div class="info-title">
+                PROCESO
+            </div>
+
+            <div class="info-body">
+                <img src="https://static.pando.org.mx/assets/images/ci/proceso.png" alt="">
+            </div>
+            <p>
+                En este portal podrás participar y seguir de cerca el proceso mediante el cual tu comunidad, con tu ayuda, identifica los problemas y áreas de oportunidad de tu entidad. Con esta información se definen las cualidades y experiencia que debe tener tu Candidatx Ideal.
+            </p>
+            <p>
+                A los candidatos los propones tú y tu comunidad.  Una vez seleccionados, participan en un proceso de evaluación que consta de dos etapas:
+                <ul class="process_steps">
+                    <li><strong>Evaluación de Expertos.</strong><br>Un grupo de ciudadanos locales, con diferentes perfiles y líderes en los temas relevantes para tu comunidad, realizan una evaluación en formato de preguntas y respuestas.</li>
+                    <li><strong>Inteligencia Artificial.</strong><br>A través de tecnología de punta, basada en reconocimiento facial, se evalúa de forma objetiva aptitudes y vocación de servicio.</li>
+                </ul>
+            </p>
+            <p>
+                Los resultados obtenidos en ambos procesos se publican en esta página en el perfil de cada candidato. Tú mismo puedes conocer sus resultados y seleccionar al Candidatx Ideal que quieres que te represente en las próximas elecciones.
+            </p>
+            <h4 class="info-submain mb-4">Etapas del Proceso</h4>
+            <div class="info-option">
+                <div class="option-icon">
+                    <div class="bullet black">
+                        <span>1</span>
+                    </div>
+                    <div class="text mb-4">
+                        Definir al Candidatx Ideal
+                    </div>
+                </div>
+                <div class="option-text">
+                    Se forma un Comité Local con ciudadanos activos, comprometidos y líderes de tu comunidad.<br><br>Con tu participación a través de nuestro cuestionario, este comité detecta las acciones más importantes que requiere tu localidad y, con base a estas necesidades reales, se define el perfil del Candidatx Ideal.<br><br>Participa y llena el <a href="{% url 'public:participa' %}">formulario</a> para decirnos qué temas son los más relevantes para tu comunidad.
+                </div>
+            </div>
+            <div class="info-option">
+                <div class="option-icon">
+                    <div class="bullet black">
+                        <span>2</span>
+                    </div>
+                    <div class="text mb-4">
+                        Postulaciones de candidatos
+                    </div>
+                </div>
+                <div class="option-text">
+                    Una vez creado el perfil, el Comité y la ciudadanía postulan a las personas que podrían tener las aptitudes y habilidades para ser la Candidatx Ideal.<br><br> ¿Conoces al Candidatx Ideal? <a href="mailto:info@candidatxideal.org?bcc=pando@candidatxideal.org&subject=Postulación Candidatx Ideal">Escríbenos</a> o llena el <a href="{% url 'public:participa' %}">formulario</a> que ponemos a tu disposición.
+                </div>
+            </div>
+            <div class="info-option">
+                <div class="option-icon">
+                    <div class="bullet black">
+                        <span>3</span>
+                    </div>
+                    <div class="text mb-4">
+                        Evaluación
+                    </div>
+                </div>
+                <div class="option-text">
+                    Los candidatos postulados participan en un proceso de evaluación que consta de dos partes: Entrevistas con expertos en los temas más relevantes y una entrevista a través de Inteligencia Artificial. 
+                </div>
+            </div>
+            
+            <div class="info-option">
+                <div class="option-icon">
+                    <div class="bullet black">
+                        <span>4</span>
+                    </div>
+                    <div class="text mb-4">
+                        ¿Cuál es tu Candidato Ideal?/ Elección
+                    </div>
+                </div>
+                <div class="option-text">
+                    Los candidatos con los mejores resultados son postulados para que tú puedas elegir al que te representará en las próximas elecciones.<br><br>Nuestra herramienta trabaja para abrir los espacios y lograr que los candidatos seleccionados por ti, tengan un espacio en la boleta electoral.<br><br> Dale voz a tu comunidad y decide a tu <a href="{% url 'public:participa' %}">Candidatx Ideal</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock content %}
+
+{% block scripts %}
+
+    <!--   Site Files   -->
+	<script src="{% static 'site/public_proceso.min.js' %}?version={{ APP.version }}"></script>
+
+{% endblock scripts %}

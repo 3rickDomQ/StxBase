@@ -1,0 +1,19 @@
+branch-defaults:
+  development:
+    environment: eci-dev
+  master:
+    environment: eci-prod
+global:
+  application_name: pando
+  branch: null
+  default_ec2_keyname: aws-eb
+  default_platform: Python 3.6 running on 64bit Amazon Linux
+  default_region: us-east-1
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: pando
+  repository: null
+  sc: git
+  workspace_type: Application

@@ -1,0 +1,101 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Pando">
+    <meta name="author" content="Codster">
+
+	<title>{{page_name}}</title>
+
+	<!-- Favicon icon -->
+	<link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/decoration/favicon-32x32.png' %}">
+
+	<link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
+    <link href="{% static 'template/vendor/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet">
+    <link href="{% static 'template/vendor/perfect-scrollbar/css/perfect-scrollbar.css' %}" rel="stylesheet">
+	<link href="{% static 'template/css/style.css' %}" rel="stylesheet">
+
+    {% block css %}
+    {% endblock css %}
+</head>
+<body>
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+	<!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper" id="wrapper">
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <!-- row -->
+			<div class="container-fluid">
+			{% block content %}
+
+			{% endblock content %}
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+    </div>
+
+    <!-- Required vendors -->
+    <script src="{% static 'template/vendor/global/global.min.js' %}"></script>
+    <script src="{% static 'template/vendor/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'template/vendor/perfect-scrollbar/js/perfect-scrollbar.min.js' %}"></script>
+    <script src="{% static 'template/js/custom.min.js' %}"></script>
+    {% comment %} <script src="{% static 'template/js/deznav-init.js' %}"></script> {% endcomment %}
+
+    <script>
+    (function($) {
+
+        var direction =  getUrlParams('dir');
+        if(direction != 'rtl')
+        {direction = 'ltr'; }
+
+        var dezSettingsOptions = {
+            typography: "roboto",
+            version: "light",
+            layout: "Vertical",
+            headerBg: "color_1",
+            navheaderBg: "color_3",
+            sidebarBg: "color_3",
+            sidebarStyle: "mini",
+            sidebarPosition: "fixed",
+            headerPosition: "fixed",
+            containerLayout: "full",
+            direction: direction
+        };
+
+        new dezSettings(dezSettingsOptions);
+
+        jQuery(window).on('resize',function(){
+            new dezSettings(dezSettingsOptions);
+        });
+
+    })(jQuery);
+	</script>
+
+    {% block scripts %}
+    {% endblock scripts %}
+</body>
+</html>

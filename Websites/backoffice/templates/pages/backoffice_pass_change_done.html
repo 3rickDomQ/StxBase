@@ -1,0 +1,40 @@
+{% extends "master/backoffice_master_out.html" %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'site/backoffice_start.min.css' %}?version={{ APP.version }}">
+{% endblock css %}
+
+{% block content %}
+
+    <div class="authincation h-100">
+        <div class="container h-100">
+            <div class="row justify-content-center h-100 align-items-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h1 class="card-body-title text-center">
+                                ¡Contraseña modificada con exito!
+                            </h1>
+                            <h4 class="card-body-subtitle text-center">
+                                Favor de utilizar esta nueva contraseña para ingresar al sistema
+                            </h4>
+
+                            <div class="form-group">
+                                <a href="{% url 'backoffice:login' %}" type="submit"
+                                class="btn btn-lg btn-primary btn-block text-uppercase mb-4">
+                                    Ir a login
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{% static 'site/backoffice_start.min.js' %}?version={{ APP.version }}"></script>
+{% endblock scripts %}

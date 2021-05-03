@@ -1,0 +1,43 @@
+{% extends "master/public_master.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'site/public_iniciativa.min.css' %}?version={{ APP.version }}">
+
+{% endblock css %}
+
+{% block content %}
+
+    <div class="content-wrap">
+
+        <div class="info">
+            <div class="info-title">
+                INICIATIVA
+            </div>
+            <p class="info-main">
+                La democracia se construye con la participación de los ciudadanos.
+            </p>
+            <p class="info-submain">
+                Durante años has sido espectador de candidaturas impulsadas por los partidos políticos. Juntos podemos cambiar el proceso de selección y abrir los espacios para que al Candidatx Ideal lo elijas tú. 
+            </p>
+            <p>
+                Candidatx Ideal está conformado por ciudadanos comprometidos e independientes que apuestan por una sociedad integrada, involucrada y participativa que se atreve a cambiar el paradigma de los actuales procesos electorales. <br>Mediante herramientas y procesos digitales, transparentes, accesibles y auditables, le damos voz a tu conocimiento y a la experiencia de tu comunidad. 
+            </p>
+
+            <p>
+                Candidatx Ideal es el despertar de una ciudadanía que quiere más y se atreve a más. ¡Elige a las candidatas que mejor te representen y sigue de cerca su progreso!
+            </p>
+        </div>
+
+    </div>
+
+{% endblock content %}
+
+{% block scripts %}
+
+    <!--   Site Files   -->
+	<script src="{% static 'site/public_iniciativa.min.js' %}?version={{ APP.version }}"></script>
+
+
+{% endblock scripts %}

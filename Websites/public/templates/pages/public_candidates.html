@@ -1,0 +1,64 @@
+{% extends "master/public_master.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'site/public_candidates.min.css' %}?version={{ APP.version }}">
+{% endblock css %}
+
+{% block content %}
+
+<div class="list">
+
+    <div class="list-header">
+        Candidatos
+    </div>
+
+    <div class="list-body row mb-4">
+        {% for record in records %}
+        <div class="candidate">
+            <div class="candidate-image">
+                <a href="{% url 'public:candidate-retrieve' record.pk %}" class="image-round">
+                    {% if record.profile.photo %}
+                        <img alt="100%x280" src="{{record.profile.photo.url}}">
+                    {% else %}
+                        <img alt="100%x280" src="{% static 'images/generic/person.png' %}">
+                    {% endif %}
+                </a>
+            </div>
+            <div class="candidate-body">
+                <div class="body-title">
+                    {{record.name}}
+                </div>
+                <div class="body-campaigns">
+                    <p>Participa como candidatx en las siguientes campañas:</p>
+                    <ul class="active-campaigns">
+                    {% for campaign in record.in_campaign.all %}
+                    <li>
+                        <a href="{% url 'public:campaign-retrieve' campaign.campaign.id %}">
+                            {{campaign.campaign.name}}
+                        </a>
+                    </li>
+                    {% endfor %}
+                    </ul>
+                </div>
+                <div class="body-actions">
+                    <a class="button button-green"
+                    href="{% url 'public:candidate-retrieve' record.pk %}">
+                        CONOCE MÁS
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock content %}
+
+{% block scripts %}
+
+	<script src="{% static 'site/public_candidates.min.js' %}?version={{ APP.version }}"></script>
+
+{% endblock scripts %}

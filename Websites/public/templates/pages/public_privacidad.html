@@ -1,0 +1,228 @@
+{% extends "master/public_master.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'site/public_participa.min.css' %}?version={{ APP.version }}">
+
+{% endblock css %}
+
+{% block content %}
+<!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <div class="content-wrap">
+
+        <div class="info">
+            <div class="info-title">
+                Aviso de Privacidad
+            </div>
+
+            <p>
+                 En cumplimiento a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares, en los términos
+ del artículo 43, fracción III de la Ley, este Aviso de Privacidad ha sido basado en los Lineamientos que tienen por
+ objeto establecer el contenido y alcance de los avisos de privacidad, en términos de lo dispuesto por dicha Ley y su
+ Reglamento.</p>
+            <p>
+                <strong>Estos lineamientos incluidos son los siguientes:</strong>
+            </p>
+            <p>
+                <ul>
+                    <li>I. La identidad y domicilio del responsable que trata los datos personales;</li>
+                    <li>II. Los datos personales que serán sometidos a tratamiento;</li>
+                    <li>III. El señalamiento expreso de los datos personales sensibles que se tratarán;</li>
+                    <li>IV. Las finalidades del tratamiento;</li>
+                    <li>V. Los mecanismos para que el titular pueda manifestar su negativa para el tratamiento de sus datos personales para aquellas finalidades que no son necesarias, ni hayan dado origen a la relación jurídica con el responsable;</li>
+                    <li>VI. Las transferencias de datos personales que, en su caso, se efectúen; el tercero receptor de los datos personales, y las finalidades de las mismas;</li>
+                    <li>VII. La cláusula que indique si el titular acepta o no la transferencia, cuando así se requiera;</li>
+                    <li>VIII. Los medios y el procedimiento para ejercer los derechos ARCO;</li>
+                    <li>IX. Los mecanismos y procedimientos para que, en su caso, el titular pueda revocar su consentimiento al tratamiento de sus datos personales;</li>
+                    <li>X. Las opciones y medios que el responsable ofrece al titular para limitar el uso o divulgación de los datos personales;</li>
+                    <li>XI. La información sobre el uso de mecanismos en medios remotos o locales de comunicación electrónica, óptica u otra tecnología, que permitan recabar datos personales de manera automática y simultánea al tiempo que el titular hace contacto con los mismos, en su caso, y</li>
+                    <li>XII. Los procedimientos y medios a través de los cuales el responsable comunicará a los titulares los cambios al aviso de privacidad.</li>
+                </ul>
+            </p>
+            <p>
+                Para el correcto entendimiento por todas las partes de este Aviso de Privacidad se mencionan algunos de los términos usados en este, para que las partes unifiquen el concepto de lo que estos significan y de esta forma quede claro el consentimiento del titular en la forma y la información que esta proporcionando, así como el trato que se dará a esta información.
+            </p>
+            <p>
+                <strong>Definiciones</strong>
+            </p>
+            <p>
+                Sin perjuicio de las definiciones previstas en los artículos 3 de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares y 2 de su Reglamento, para los efectos de estos Lineamientos se entenderá por:
+            </p>
+            <p>
+                I. Aviso de Privacidad: Documento físico, electrónico o en cualquier otro formato generado por el responsable que es puesto a disposición del titular, previo al tratamiento de sus datos personales, de conformidad con el artículo 15 de la presente Ley. <br><br>
+                II. Bases de datos: El conjunto ordenado de datos personales referentes a una persona identificada o identificable.<br><br>
+                III. Bloqueo: La identificación y conservación de datos personales una vez cumplida la finalidad para la cual fueron recabados, con el único propósito de determinar posibles responsabilidades en relación con su tratamiento, hasta el plazo de prescripción legal o contractual de éstas. Durante dicho periodo, los datos personales no podrán ser objeto de tratamiento y transcurrido éste, se procederá a su cancelación en la base de datos que corresponde.<br><br>
+                IV. Consentimiento: Manifestación de la voluntad del titular de los datos mediante la cual se efectúa el tratamiento de los mismos.<br><br>
+                V. Datos personales: Cualquier información concerniente a una persona física identificada o identificable.<br><br>
+                VI. Datos personales sensibles: Aquellos datos personales que afecten a la esfera más íntima de su titular, o cuya utilización indebida pueda dar origen a discriminación o conlleve un riesgo grave para éste. En particular, se consideran sensibles aquellos que puedan revelar aspectos como origen racial o étnico, estado de salud presente y futuro, información genética, creencias religiosas, filosóficas y morales, afiliación sindical, opiniones políticas, preferencia sexual.<br><br>
+                VII. Días: Días hábiles.<br><br>
+                VIII. Disociación: El procedimiento mediante el cual los datos personales no pueden asociarse al titular ni permitir, por su estructura, contenido o grado de desagregación, la identificación del mismo.<br><br>
+                IX. Encargado: La persona física o jurídica que sola o conjuntamente con otras trate datos personales por cuenta del responsable.<br><br>
+                X. Fuente de acceso público: Aquellas bases de datos cuya consulta puede ser realizada por cualquier persona, sin más requisito que, en su caso, el pago de una contraprestación, de conformidad con lo señalado por el Reglamento de esta Ley.<br><br>
+                XI. Instituto: Instituto Federal de Acceso a la Información y Protección de Datos, a que hace referencia la Ley Federal de Transparencia y Acceso a la Información Pública Gubernamental.<br><br>
+                XII. Ley: Ley Federal de Protección de Datos Personales en Posesión de los Particulares.<br><br>
+                XIII. Reglamento: El Reglamento de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.<br><br>
+                XIV. Responsable: Persona física o moral de carácter privado que decide sobre el tratamiento de datos personales.<br><br>
+                XV. Secretaría: Secretaría de Economía.<br><br>
+                XVI. Tercero: La persona física o moral, nacional o extranjera, distinta del titular o del responsable de los datos.<br><br>
+                XVII. Titular: La persona física a quien corresponden los datos personales.<br><br>
+                XVIII.Tratamiento: La obtención, uso, divulgación o almacenamiento de datos personales, por cualquier medio. El uso abarca cualquier acción de acceso, manejo, aprovechamiento, transferencia o disposición de datos personales.<br><br>
+                XIX. Transferencia: Toda comunicación de datos realizada a persona distinta del responsable o encargado del tratamiento.<br><br>
+                XX. Cookies: Archivo de datos que se almacena en el disco duro del equipo de cómputo o del dispositivo de comunicaciones electrónicas de un usuario al navegar en un sitio de internet específico, el cual permite intercambiar información de estado entre dicho sitio y el navegador del usuario. La información de estado puede revelar medios de identificación de sesión, autenticación o preferencias del usuario, así como cualquier dato almacenado por el navegador respecto al sitio de internet;<br><br>
+                XXI. Lineamientos: Lineamientos del Aviso de Privacidad;<br><br>
+                XXII. Obtener los datos personales de forma directa de su titular: Acto en el cual el propio titular proporciona los datos personales por algún medio que permite su entrega directa al responsable, entre ellos, medios electrónicos, ópticos, sonoros, visuales o cualquier otra tecnología, como correo postal, internet o vía telefónica, entre otros;<br><br>
+                XXIII. Obtener los datos personales de forma indirecta: Acto en el cual el responsable obtiene los datos personales sin que el titular se los haya proporcionado de forma personal o directa, como por ejemplo a través de una fuente de acceso público o una transferencia;<br><br>
+                XXIV. Obtener los datos personales de forma personal de su titular: Acto en el cual el titular proporciona los datos personales al responsable o a la persona física designada por el responsable, con la presencia física de ambos;<br><br>
+                XXV. Poner a disposición el aviso de privacidad de forma directa: Acto en el cual se hace del conocimiento del titular el aviso de privacidad por algún medio que permite su entrega directa, entre ellos, medios electrónicos, ópticos, sonoros, visuales o cualquier otra tecnología, como correo postal, internet o vía telefónica, entre otros;<br><br>XXVI. Poner a disposición el aviso de privacidad de forma personal: Acto en el cual el responsable o la persona física designada por el responsable para tal fin entrega o hace del conocimiento del titular el aviso de privacidad, con la presencia física de ambos, y<br><br>
+                XXVII. Web beacons: Imagen visible u oculta insertada dentro de un sitio web o correo electrónico, que se utiliza para monitorear el comportamiento del usuario en estos medios. A través de éstos se puede obtener información como la dirección IP de origen, navegador utilizado, sistema operativo, momento en que se accedió a la página, y en el caso del correo electrónico, la asociación de los datos anteriores con el destinatario.<br><br> 
+                XXVIII. El titular: El o las personas que voluntariamente entraron vía la publicidad del responsable a la plataforma de Candidatx Ideal, operada por Pando Servicios Digitales, en la cual antes de registrarse aceptaron este aviso de privacidad, y con su registro comenzaron voluntariamente a otorgar su información personal.<br><br>
+                XXIV. El tercero receptor: La persona física o moral, así como el medio tecnológico propiedad de esta, que actúa como intermediario para recibir de El titular la información personal, y que esta pueda ser conjuntada, procesada, almacenada y entregada a El responsable.<br><br>
+                XXX. El responsable: La persona física o moral que tiene la obligación implementar y mantener Medidas de Seguridad administrativas, técnicas y físicas con el objetivo de proteger los Datos Personales contra daño, pérdida, alteración, destrucción o acceso, uso, o procesamiento no autorizados; y prevenir posibles vulneraciones<br><br>
+                XXXI. El promotor de los servicios y/o productos: Es la persona física o moral que con el objeto de promover sus productos o servicios, o evaluar por su relación con El titular, le hace llegar el medio de acceso a la plataforma Candidatx Ideal, operada por Pando Servicios Digitales, a este, para que con su consentimiento al aceptar este Aviso de Privacidad.
+            </p>
+
+            <p>
+                <strong>I. La identidad y domicilio del responsable que trata los datos personales;</strong>
+            </p>
+            <p>
+                De acuerdo a la cláusula Décimo Séptima del CONTRATO DE LICENCIA Y USO DE SERVICIOS ADICIONALES que Pando Servicios Digitals y Sea Shell Technologies SAPI de CV celebraron para que el primero pueda recibir vía la plataforma Digital Candidatx Ideal, propiedad del segundo, la información del Titular que decidió vía la publicidad del promotor de servicios y/o productos entregar mediante su interacción con la plataforma Digital Candidatx Ideal, dentro de las Obligaciones en materia de Medidas de Seguridad, por esta aprobación de El titular, el promotor de los servicios y/o productos, mencionado en dicho contrato como “Pando Servicios Digitales”, estará facultado para obtener de SEA SHELL (Sea Shell Technologies SAPI de CV) la información que se defina en el reporte durante el proceso de la personalización de los servicios objeto de este Contrato, en el entendido de dicha información será propiedad del usuario final, quien en este caso es El titular, de forma que , el promotor de los servicios y/o productos, mencionado en dicho contrato como “Pando Servicios Digitales” deberá manejarla como tal en cumplimiento a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares y pasando a ser desde ese momento El responsable de esta información. <br><br> 
+                Debido a esto, en cumplimiento con los lineamientos de este aviso de privacidad, existirán dos identidades y dos direcciones de los responsables de la trata con los datos personales de El titular. Siendo estos:<br><br>i) Como el tercero receptor, y responsable temporal por la recepción, procesamiento, interpretación, almacenamiento y entrega a quien actúa como el responsable final, por ser el promotor de los productos y/o servicios que contrató los servicios de este tercero receptor: Sea Shell Technologies SAPI de CV, con domicilio Av Palma Cyca 2002 int 71b, Col Palmares Querétaro Qro 76127. <br><br> 
+                ii) Como El responsable final de recibir por parte del tercero receptor, por haber contratado estos servicios, será el promotor de productos y/o servicios, quien puso a disposición ya sea de manera directa o a través de publicidad digital, el acceso a la plataforma digital Candidatx Ideal a El titular. De forma que El responsable final sería la empresa que proporcionó directamente el acceso a la plataforma digital Candidatx Ideal, y su dirección debe estar especificada en el medio por el que proporcionó el acceso. <br><br>
+                De forma que, aunque Sea Shell Technologies SAPI de CV, actúa en este caso como Tercero Receptor de la información que El titular provee a través de su plataforma digital Candidatx Ideal, asume también su responsabilidad como El responsable, por la recepción, procesamiento, interpretación, almacenamiento y entrega al quien actual como El responsable final de esta información, junto con la opinión de Candidatx Ideal respecto al perfil de riesgo de El titular, que sería el promotor de los productos y/o servicios que contrató a Sea Shell Techonolgies para que a través de su plataforma digital Candidatx Ideal pudiera recibir, procesar, interpretar y almacenar para su entrega la información del El titular, con el objetivo de evaluar a este último.
+            </p>
+
+            <p>
+                <strong>II. Los datos personales que serán sometidos a tratamiento;</strong>
+            </p>
+            <p>
+                Los datos personales que El titular acepta otorgar en su nombre y de las personas relacionadas con su evaluación, para el tratamiento del tercero receptor y posterior entrega a El responsable final, son todos los otorgados directa e indirectamente al accesar, registrarse, y contestar todas las preguntas, así como descarga directo de las instituciones con las que trabaja, o carga de documentos y/o imágenes que respalden el tramite que esta realizando con el promotor de producto y/o servicio que contrató al tercero receptor. Los datos personales de quien accesa a la plataforma digital Candidatx Ideal y de los terceros relacionados con su trámite, serán tratados como información personal de cada uno de estos, siendo ellos El titular de esa información, pero sometidos también a tratamiento para el procesamiento, la evaluación y el almacenaje para análisis estadístico que se realizará de los datos individualmente y en conjunto. <br><br> 
+                De forma que toda información que se provea por todos los dispositivos de entrada o salida de una computadora de escritorio, laptop, tablet, teléfono, o cualquier medio electrónico que use los medios como teclado, mouse, escaner, micrófono, cámara, gps, cookies y/o webbeacon para que El titular interactue con la plataforma Digital Candidatx Ideal para realizar su evaluación será sometido a tratamiento como parte de la información a ser evaluada, procesada almacenada, por completo, en partes o en forma de opinión compartida con El responsable final. <br><br>
+                Así que al aceptar este aviso de privacidad, El titular libera de toda responsabilidad al tercero receptor y El responsable, por la recepción, procesamiento, evaluación y opinión que pueda dar con esta información personal.
+            </p>
+
+            <p>
+                <strong>III. El señalamiento expreso de los datos personales sensibles que se tratarán;</strong>
+            </p>
+            <p>
+                De acuerdo al articulo 3ro fracción VI de esta ley, se reconoce como los datos personales sensibles que se trataran por la interacción de El titular con la plataforma Digital Candidatx Ideal el estado civil, número de hijos, información económica, origen racial o étnico, nivel socioeconómico, estado de salud presente y futuro, las creencias, religiosas, filosóficas y morales, afiliación sindical, opiniones políticas, preferencia sexual, aparente relación con los terceros titulares que se mencionen durante la evaluación, y todo lo relevante al comportamiento pasado, presente y futuro de El titular en materia relacionada con la información que El responsable proveedor de productos y/o servicios haya contratado a El tercero receptor. <br><br> 
+                Dentro de los Web beacons utilizados por la plataforma Candidatx Ideal, para monitorear el comportamiento del usuario, titular de los datos personales que están siendo entregados por este, de forma indirecta a través de Candidatx Ideal, para ser entregados al responsable que contrató este plataforma para facilitar que el titular entregue esta información, se encuentran la fecha en la que se ha interactuado con este plataforma, el navegador utilizado, el numero de veces que se interactuó con esta, el numero de veces que el titular respondió las preguntas en esta plataforma para encontrar el producto por el que decidió entrar a la publicidad del responsable, el texto el audio y el video de las respuestas que El titular dio a la plataforma Digital Candidatx Ideal, así como durante toda la interacción que esta haya tenido al escuchar o leer las preguntas, o durante el tiempo que accesó a las instituciones con las que trabaja para proveer de la información o los documentos que le eran solicitados, o cuando subía documentos o imágenes que le eran requeridos directa o indirectamente como parte de la evaluación.
+            </p>
+            <p>
+                <strong>IV. Las finalidades del tratamiento;</strong>
+            </p>
+            <p>
+                Debido a las amplias capacidades técnicas de la plataforma Digital Candidatx Ideal, las finalidades del tratamiento de la información y datos personales pueden variar dependiendo el objeto para el que esta plataforma haya sido contratada por el promotor de los servicios y/o productos, Pando Servicios Digitales dentro del contrato de prestación de servicio SAAS de Candidatx Ideal, para recibir, procesar, interpretar y almacenar para su entrega la información del El titular, con el objetivo
+                 de evaluar a este último. Siendo la evaluación de El titular la finalidad última, esta evaluación podría venir de forma enunciativa mas no limitativa dentro de los siguientes posibles usos:
+                1.- evaluación de riesgo crediticio o ventas a crédito 2.- evaluación de prevención de lavado de dinero
+                3.- cumplimiento de la regulación de conocimiento dPando Servicios Digitales, conocido como KYC por sus siglas en inglés, de instituciones financieras.
+                4.- evaluación del riesgo de la venta de algún servicio de seguro, cubriendo determinados riesgos económicos
+                5.- prevención de fraude o información no verídica en la reclamación de algún seguro o fianza
+                6.- prevención de fraude o información no verídica en la prestación o recepción de algún servicio financiero
+                7.- evaluación de riesgo de contratación de personal, o su idoneidad para algún puesto por las competencias y características definidas por Pando Servicios Digitales que contrata
+                8.- evaluación de riesgo de personal contratado o que sea parte de una institución pública o privada 9.- evaluación de riesgo de arrendamiento u hospedaje relacionado a inmuebles
+                10.- evaluación, seguimiento y reporte a las SIC del desempeño en pago puntual de servicios financieros o la compra a crédito o plazo de un producto o servicio
+                Así como el procesamiento de la evaluación en base al desempeño de los prospectos titulares de la información de cada una de las licencias de Pando Servicios Digitales para generar modelos estadísticos que ayuden a la mejor evaluación de los prospectos titulares que vendrán después de este. Así como de patrones de comportamiento y relaciones estadísticas que ayuden a proveer de mayor certidumbre y por lo mismo ampliar la gama de productos y servicios que se pueden entregar al publico en general.
+            </p>
+            <p>
+                <strong>V. Los mecanismos para que el titular pueda manifestar su negativa para el tratamiento de sus datos personales para aquellas finalidades que no son necesarias, ni hayan dado origen a la relación jurídica con el responsable;</strong>
+            </p>
+            <p>
+                Debido a que la plataforma digital Candidatx Ideal es contratada para recibir, procesar, interpretar, almacenar y generar modelos estadísticos que ayuden a Pando Servicios Digitales promotor del producto o servicio por lo que El titular haya entrado en contacto con la plataforma, a evaluar el riesgo y rentabilidad de iniciar o continuar una relación comercial o laboral con el prospecto titular, todo estos procesos será considerados como necesarios y El titular y prospecto a ser evaluado autoriza estos al otorgar su información. Para finalidades no necesarias distintas a las mencionadas o que no hayan dado origen a la relación jurídica con la plataforma digital Candidatx Ideal o con Pando Servicios Digitales, El titular deberá mandar un correo electrónico a la dirección jdgomez@Candidatx Ideal.com con copia a la cuenta sara@Candidatx Ideal.com , con su información de identificación completa, el teléfono, correo electrónico y dirección física de contacto, especificando las finalidades para las que quiere manifestar su negativa, así como Pando Servicios Digitales o promotor del producto o servicio por el que la plataforma digital Candidatx Ideal recibió su información personal.
+            </p>
+            <p>
+                <strong>VI. Las transferencias de datos personales que, en su caso, se efectúen; el tercero receptor de los datos personales, y las finalidades de las mismas;</strong>
+            </p>
+            <p>
+                Los datos recabados, el procesamiento y el resultado de la evaluación de estos son presentados por la plataforma digital Candidatx Ideal a Pando Servicios Digitales, que es quien promovió ante el prospecto Titular de los datos su interacción con la plataforma, a manera de un reporte de riesgo donde se incluyen las variables mas relevantes para la finalidad que Pando Servicios Digitales haya contratado la plataforma digital Candidatx Ideal. En este reporte de riesgo se pueden incluir variables tanto del resultado de la evaluación estadística realizada, como del valor compuesto de diversos datos otorgados por El Titular, o directamente información proporcionada por El Titular, o por las instituciones o compañías para las que este dio su autorización de consulta. Este reporte se entrega a Pando Servicios Digitales por alguna de las siguientes formas: <br>
+                a) En la consulta directa del usuario autorizado por Pando Servicios Digitales, con su usuario y contraseña dentro de la plataforma digital Candidatx Ideal por acceso web. <br>
+                b) Vía el widget de conexión entre la plataforma web de Pando Servicios Digitales y la plataforma digital Candidatx Ideal, desde donde la plataforma web de Pando Servicios Digitales pone en contacto a la plataforma digital Candidatx Ideal con el prospecto Titular, y vía el cual la plataforma digital Candidatx Ideal entrega un archivo a la plataforma web de Pando Servicios Digitales
+            </p>
+            <p>
+                <strong>VII. La cláusula que indique si el titular acepta o no la transferencia, cuando así se requiera;</strong>
+            </p>
+            <p>
+                Debido a que Pando Servicios Digitales es quien promueve que El Titular proporcione su información e interactúe con la plataforma digital Candidatx Ideal, el iniciar con el proceso de recopilación de esta información es considerado como la aceptación de El Titular a que la plataforma digital Candidatx Ideal transfiera el reporte de riesgo que puede incluir variables tanto del resultado de la evaluación estadística realizada, como del valor compuesto de diversos datos otorgados por El Titular, o directamente información proporcionada por El Titular, o por las instituciones o compañías para las que este dio su autorización de consulta. Así como el procesamiento de la evaluación en base al desempeño de los prospectos titulares de la información de cada una de las licencias de Pando Servicios Digitales para generar modelos estadísticos que ayuden a la mejor evaluación de los prospectos titulares que vendrán después de este. Incluyendo también de patrones de comportamiento y relaciones estadísticas que ayuden a proveer de mayor certidumbre y por lo mismo ampliar la gama de productos y servicios que se pueden entregar al público en general. Así como cuando aplique por la finalidad del tratamiento, la evaluación, seguimiento y reporte a las SIC (Sociedades de Información Crediticia) del desempeño en pago puntual de servicios financieros o la compra a crédito o plazo de un producto o servicio de El Titular a Pando Servicios Digitales, siendo que El Titular autoriza igualmente la consulta de la plataforma digital Candidatx Ideal de las SIC. <br><br> 
+                De forma que si El titular tiene alguna objeción con que la plataforma digital Candidatx Ideal comparta información con Pando Servicios Digitales promotor de los productos o servicios por los que llegó a esta plataforma, no debe iniciar el proceso de evaluación, sino abandonar la plataforma al conocer este aviso de privacidad y las condiciones del mismo.
+            </p>
+            <p>
+                <strong>VIII. Los medios y el procedimiento para ejercer los derechos ARCO</strong>
+            </p>
+            <p>
+                Los derechos ARCO únicamente se podrán ejercer por: <br><br>
+                El titular, previa acreditación de su identidad, presentando original y copia de su documento de identificación o a través de instrumentos electrónicos que le permitan identificarse.
+                Su representante, previa acreditación de su identidad y de su personalidad mediante instrumento público o carta poder firmada ante dos testigos, o declaración en comparecencia personal del titular. <br><br> 
+                Para el ejercicio de los derechos ARCO de menores de edad o de personas que se encuentren en estado de interdicción incapacidad establecida por ley, se deberán observar las reglas de representación señaladas en el Código Civil Federal. <br><br>
+                En cualquier momento y de manera gratuita El Titular o su representante podrán solicitar al responsable el acceso, rectificación, cancelación u oposición de sus datos personales, previa acreditación de su identidad o personalidad del representante. Sólo está permitido cobrar al titular los gastos de envío o el costo de reproducción en copias simples, otros formatos, o en su caso, certificación de documentos. Estos costos de reproducción no podrán ser mayores a los costos de recuperación del material correspondiente.
+                Los derechos ARCO se pueden ejercer sin algún orden preestablecido. El ejercicio de alguno de ellos no es requisito previo para el ejercicio de otro. <br><br> 
+                La solicitud de derechos ARCO debe ser presentada a través de un correo electrónico a la cuenta contacto@CandidatxIdeal.com y contener la siguiente información: <br><br>
+                1. El nombre y domicilio del titular o cualquier otro medio para recibir la respuesta (si el titular omite la dirección o cualquier otro medio que haya elegido para contactarlo, se tendrá por no recibida la solicitud).
+                2. Los documentos que acrediten la identidad o la personalidad de su representante. <br>
+                3. La descripción clara y precisa de los datos personales respecto de los cuales el titular busca ejercer alguno de los derechos. <br>
+                4. En su caso, otros elementos o documentos que faciliten la localización de los datos personales. <br>
+                Si la solicitud del titular no es clara, es errónea o incompleta, el responsable podrá pedirle que aporte información adicional para atender su petición dentro de los 5 días hábiles siguientes a la recepción de la solicitud, de no dar respuesta la solicitud se tendrá por no presentada. El titular contará con 10 días hábiles para atender el requerimiento de información adicional del responsable, contados a partir del día siguiente en que lo haya recibido. En caso de que el titular atienda el requerimiento de información, el plazo para que el responsable dé respuesta a la solicitud empezará a correr al día siguiente de que el titular haya atendido el requerimiento. <br><br> 
+                El plazo máximo para que el responsable comunique al titular su respuesta es de 20 días hábiles, el cual podrá ampliarse por una sola vez por causa justificada. La justificación de la ampliación debe notificarse dentro del mismo plazo contado a partir del día en que se recibe la solicitud. <br>bra
+                Si el responsable considera procedente la petición del titular, éste podrá hacer efectivo su derecho ARCO dentro de los 15 días hábiles siguientes a la fecha de la respuesta. Este plazo podrá ampliarse por una sola vez por causa justificada. La justificación de la ampliación debe notificarse dentro del mismo plazo. <br><br>
+                El responsable podrá negar el ejercicio de los derechos ARCO cuando: <br>
+                • El titular o su representante no se acrediten debidamente. <br>
+                • No se encuentren los datos personales en la base de datos del responsable. <br>
+                • Se lesionen derechos de terceros. <br>
+                • La rectificación, cancelación u oposición haya sido realizada previamente. <br>
+                • Exista impedimento legal o resolución de una autoridad que restrinja el ejercicio de estos derechos. <br><br>
+                Tomando en consideración las circunstancias concretas del titular, la negativa al ejercicio de derechos ARCO podrá ser parcial en cuyo caso el responsable debe permitir el acceso, rectificación, cancelación u oposición requerida por el titular sobre aquellos datos donde procedan dichas solicitudes. El responsable está obligado a informar al titular o su representante la justificación de su negativa o decisión a través del mismo medio por el que se llevó a cabo la solicitud, acompañando, en su caso, de las pruebas que resulten pertinentes.
+                En caso de que el titular no esté conforme con la respuesta, o bien, el responsable omita dar respuesta, el titular podrá presentar una solicitud de protección de derechos ante el INAI.
+            </p>
+            <p>
+                <strong>IX. Los mecanismos y procedimientos para que, en su caso, el titular pueda revocar su consentimiento al tratamiento de sus datos personales</strong>
+            </p>
+            <p>
+                La revocación del consentimiento deberá hacerse por el mismo procedimiento que para ejercer sus derechos ARCO, con la especificación de sobre el tipo de información para la que solicitan retirar el consentimiento.
+            </p>
+            <p>
+                <strong>X. Las opciones y medios que el responsable ofrece al titular para limitar el uso o divulgación de los datos personales;</strong>
+            </p>
+            <p>
+                Cuando El Titular requiera limitar el uso o divulgación de los datos personales, fuera de las finalidades del tratamiento autorizado por continuar con el proceso de interacción con la plataforma digital Candidatx Ideal, dándose por enterado de este aviso de privacidad, es necesario que mande esta solicitud a la dirección de correo electrónico contacto@CandidatxIdeal.com bajo el mismo proceso y requisitos que para ejercer sus derechos ARCO mencionados anteriormente.
+            </p>
+            <p>
+                <strong>XI. La información sobre el uso de mecanismos en medios remotos o locales de comunicación electrónica, óptica u otra tecnología, que permitan recabar datos personales de manera automática y simultánea al tiempo que el titular hace contacto con los mismos</strong>
+            </p>
+            <p>
+                Debido a la naturaleza tecnológica, la capacidad de obtención de información por medios tecnológicos, y la capacidad de procesamiento e interpretación de esta información que permite recabar datos personales de manera automática por el contacto del titular con estos medios tecnológicos, razón por la cual la plataforma digital Candidatx Ideal es contratada por Pando Servicios Digitales y promotor del producto o servicio por los que El Titular entra en contacto con estos, se da a conocer estos mecanismos y el alcance de estos. <br><br>
+                La plataforma digital Candidatx Ideal cuenta con mecanismos para obtener información mediante las respuestas directas que El Titular da a la solicitud de esta en el proceso, a la que El Titular autoriza para consultar con otras instituciones o empresas que prestan servicios financieros, de comunicaciones, de energía eléctrica o de agua potable, de facturación y declaraciones presentadas al SAT, o cualquier otra que se indique en el proceso de interacción como la que se pueda obtener por el uso de su correo electrónico, teléfono celular, o cualquier otro dato de información por la que se pueda tener cualquier tipo de información de El Titular, así como también la lectura biométrica y la validación vía esta de El Titular, y de la interpretación por medio de esta lectura de las respuestas emocionales y los patrones de comportamiento que estas puedan tomarse como información estadísticamente relevante para la evaluación de la finalidad para la que fue contratada la plataforma digital Candidatx Ideal por Pando Servicios Digitales.
+            </p>
+            <p>
+                <strong>XII. Los procedimientos y medios a través de los cuales el responsable comunicará a los titulares los cambios al aviso de privacidad.</strong>
+            </p>
+            <p>
+                Este aviso de privacidad, por completo o en alguna de sus partes podrá ser modificado sin aviso previo, para el cumplimiento de nuevas regulaciones u obligaciones por parte de la plataforma digital Candidatx Ideal, o de Pando Servicios Digitales promotor de los productos o servicios por los que El Titular entra en contacto con la plataforma, así como por cualquier mejora que alguna de estas partes que manejan la información de El Titular vean necesaria para la recolección, procesamiento o interpretación de la información necesaria para el cumplimiento de la finalidad de esta interacción. <br><br>
+                Por lo que El Titular deberá revisar desde el origen promovido por Pando Servicios Digitales promotor de los productos o servicios, por el que entró en contacto con la plataforma digital Candidatx Ideal, o contactar directamente solicitando la ultima versión de este aviso de privacidad a la dirección de correo contacto@CandidatxIdeal.com, para conocer los cambios o cambio completo de este aviso de privacidad.
+            </p>
+
+            <p>
+                <strong>Última actualización: 18/03/2021</strong>
+            </p>
+
+        </div>
+    </div>
+
+
+{% endblock content %}
+
+{% block scripts %}
+
+    <!--   Site Files   -->
+	<script src="{% static 'site/public_participa.min.js' %}?version={{ APP.version }}"></script>
+
+{% endblock scripts %}

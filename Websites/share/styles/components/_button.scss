@@ -1,0 +1,14 @@
+.btn-label {
+    margin-left: .5rem;
+}
+
+.btn-pando-primary {
+    color: #3a7afe;
+    border-color: #3a7afe;
+
+    &:hover {
+        color: #fff;
+        background-color: #3a7afe;
+        border-color: #3a7afe;
+    }
+}

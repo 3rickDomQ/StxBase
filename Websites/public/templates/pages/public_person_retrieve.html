@@ -1,0 +1,107 @@
+
+{% extends "master/public_master.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'site/public_person_retrieve.min.css' %}?version={{ APP.version }}">
+{% endblock css %}
+
+{% block content %}
+
+<div class="campaign">
+    <div class="campaign-body">
+        <div class="candidate">
+            <div class="candidate-header">
+                <div class="header-image">
+                    <div class="image-round">
+                    {% if record.profile.photo %}
+                        <img class="image-round" alt="100%x280" src="{{record.profile.photo.url}}">
+                    {% else %}
+                        <img class="image-round" alt="100%x280" src="{% static 'images/generic/person.png' %}">
+                    {% endif %}
+                    </div>
+                </div>
+                <div class="header-description">
+                    <div class="description-top">
+                        <div class="candidate-name">
+                            {{record.name}}
+                        </div>
+                        <div class="social">
+                            {% if record.profile.facebook %}
+                                 <a class="social-opt" target="_blank" href="{{record.profile.facebook}}">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </a>
+                            {% else %}
+                                 <a class="social-opt" href="#">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </a>
+                            {% endif %}
+
+                            {% if record.profile.twitter %}
+                                 <a class="social-opt" target="_blank" href="{{record.profile.twitter}}">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
+                            {% else %}
+                                 <a class="social-opt" href="#">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
+                            {% endif %}
+
+                            {% if record.profile.instagram %}
+                                 <a class="social-opt" target="_blank" href="{{record.profile.instagram}}">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                </a>
+                            {% else %}
+                                 <a class="social-opt" href="#">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="description-bottom">
+                        <div class="information">
+                            {{record.profile.description|default_if_none:""}}
+                        </div>
+                        <div class="files">
+                        {% for file in record.profile.files.all %}
+                            <a href={{file.file.url}}
+                            target="_blank"
+                            type="button" class="button button-green">
+                                Descargar: {{file.description}}
+                            </a>
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if record.profile.twitter_list %}
+<div class="timeline">
+    <div class="timeline-body">
+        <a class="twitter-timeline"
+        data-height="800"
+        href="{{record.profile.twitter_list}}">
+            A Twitter List by pando
+        </a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</div>
+{% endif %}
+
+{% endblock content %}
+
+{% block scripts %}
+
+    <!--   Site Files   -->
+	<script src="{% static 'site/public_person_retrieve.min.js' %}?version={{ APP.version }}"></script>
+
+{% endblock scripts %}
+
+
+
+

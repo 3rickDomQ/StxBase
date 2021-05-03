@@ -1,0 +1,40 @@
+
+{% load static from staticfiles %}
+
+{% load widget_tweaks %}
+
+<div class="photo-preview">
+    {% if imagen != ''%}
+        <img
+            id="photo-preview"
+            class="img-responsive img-thumbnail"
+            src="{{ imagen }}"
+            alt="User Image"
+        />
+
+    {% else %}
+        <img
+            id="photo-preview"
+            class="img-responsive img-thumbnail"
+            src="{% static 'images/generic/person.png' %}"
+            alt="User Image"
+        />
+    {% endif %}
+
+    <div class="photo-preview-input">
+        {{input_image|attr:"class:photo-preview-input"}}
+        <label for="{{input_image.id_for_label}}">
+            <span>Seleccionar archivo…</span>
+        </label>
+    </div>
+
+    {% if input_image.errors %}
+        <ul class="parsley-errors-list filled">
+        {% for error in input_image.errors %}
+            <li class="parsley-required">
+                {{ error }}
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</div>

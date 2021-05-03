@@ -1,0 +1,50 @@
+@import '../../../share/styles/layouts/breakpoints';
+
+@import '../styles/bases/colors';
+
+
+.content-wrap {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+
+    .info {
+        width: 100%;
+        padding: 2rem 1rem;
+        width: 100%;
+
+        @include mq($from: tablets) {
+            width: 80%;
+        }
+
+        @include mq($from: laptops) {
+            width: 60%;
+        }
+
+        @include mq($from: desktops) {
+            width: 50%;
+        }
+        .info-title {
+            color: $color-brand-primary;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+        }
+
+        p {
+            width: 100%;
+        }
+
+        &-main {
+            color: $color-brand-main;
+            font-weight: 700;
+            font-size: 2rem;
+        }
+
+        &-submain {
+            // color: $color-brand-main;
+            font-weight: 500;
+            font-size: 1.25rem;
+        }
+    }
+}

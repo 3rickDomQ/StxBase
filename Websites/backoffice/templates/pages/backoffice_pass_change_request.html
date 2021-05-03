@@ -1,0 +1,67 @@
+{% extends "master/backoffice_master_out.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% load tags_controls %}
+{% load tags_feedback %}
+
+{% block css %}
+
+    <link rel="stylesheet" href="{% static 'site/backoffice_login.min.css' %}?version={{ APP.version }}">
+{% endblock css %}
+
+{% block content %}
+
+<div class="authincation h-100">
+    <div class="container h-100">
+        <div class="row justify-content-center h-100 align-items-center">
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-body">
+                        <a href="{% url 'backoffice:login' %}" class="brand-wrapper">
+                            {% comment %} <img src="{% static 'images/logo.png' %}" alt="logo" class="logo"> {% endcomment %}
+                        </a>
+                        <p class="login-card-description">
+                            Favor de especificar tu Email
+                        </p>
+                        <form action="" method="post"> {% csrf_token %}
+                            {% tag_feedback_messages messages %}
+                            {% tag_feedback_form_errors form %}
+
+                            <div class="form-group {% if form.email.errors %} has-error has-feedback {% endif %}">
+
+                                <div class="input-icon">
+                                    {% comment %} <span class="input-icon-addon">
+                                        <i class="fa fa-user"></i>
+                                    </span> {% endcomment %}
+                                    {% render_field form.email class="form-control" %}
+                                </div>
+
+                                {% for error in form.email.errors %}
+                                <small id="{{form.email.id_for_label}}"
+                                class="form-text text-muted">
+                                    {{error}}
+                                </small>
+                                {% endfor %}
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit"
+                                class="btn btn-lg btn-primary btn-block text-uppercase mb-4">
+                                    Restablecer contraseña
+                                </button>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{% static 'site/backoffice_login.min.js' %}?version={{ APP.version }}"></script>
+{% endblock scripts %}

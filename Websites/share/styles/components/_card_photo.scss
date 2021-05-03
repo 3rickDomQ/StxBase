@@ -1,0 +1,52 @@
+.photo-preview {
+    background-color: #fff;
+    padding: 1rem 1rem .5rem;
+    border-radius: 6px;
+    margin-bottom: 2rem;
+
+    img {
+        margin-bottom: .7rem;
+    }
+
+    &-input {
+        input {
+            display: none;
+        }
+
+        label {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            span {
+                display: inline-block;
+                border: none;
+                padding: .5rem 1rem;
+                margin: 0;
+                text-decoration: none;
+                background-color: white;
+                color: black;
+                // font-family: sans-serif;
+                font-size: 1rem;
+                font-weight: 500;
+                line-height: 1;
+                cursor: pointer;
+                text-align: center;
+                transition: background 250ms ease-in-out, transform 150ms ease;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+
+                border-radius: 6px;
+
+                // color: $color-brand-main;
+                border: 1px solid #37474F;
+                background-color: #fff;
+
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+}

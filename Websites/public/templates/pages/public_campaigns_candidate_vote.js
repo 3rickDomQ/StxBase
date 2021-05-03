@@ -1,0 +1,1 @@
+import './public_campaigns_candidate_vote.scss'

@@ -1,0 +1,104 @@
+{% extends "master/public_master.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'site/public_landing.min.css' %}?version={{ APP.version }}">
+
+    <style>
+    .section-main {
+        background-image: url("{% static 'images/decoration/pattern2.png' %}");
+        background-repeat: repeat;
+        background-size: 120px;
+    }
+    </style>
+
+{% endblock css %}
+
+{% block content %}
+
+<div class="section-main">
+    <div class="section-main-body">
+        <div class="resume">
+            <div class="embed-responsive embed-responsive-16by9 mb-4 box-shadow">
+                <video src="https://static.pando.org.mx/assets/videos/Candidatx_Ideal.mp4" poster="https://static.pando.org.mx/assets/images/Candidatx_Ideal.png" controls></video>
+            </div>
+            <div class="card-text">
+                <p>
+                    <span>Candidatx Ideal</span> es una iniciativa ciudadana independiente. A través de herramientas digitales conoces, evalúas y eliges a los ciudadanos que te representarán en la contienda electoral.
+                </p>
+                <p>
+                    <span>
+                        ¡Elijamos a los candidatos que merecemos!
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="actions">
+
+            <div class="card-marques">
+                <div class="card-marques-header">
+                    <div class="label">
+                        Candidaturas en
+                    </div>
+                    <div class="text">
+                        El Marqués, Querétaro
+                    </div>
+                </div>
+                <div class="card-marques-body">
+                    <a href="{% url 'public:campaign-retrieve' 1 %}" class="button button-white">
+                        Diputado Local
+                    </a>
+
+                    <a href="{% url 'public:campaign-retrieve' 2 %}" class="button button-white">
+                        Presidente Municipal
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-header">
+        ¿Cómo participo?
+    </div>
+
+    <div class="row text-center">
+        <div class="col-lg-3 col-md-6 col-sm-12"><img src="{% static 'images/participa1.png' %}" alt="Identifica los problemas de tu comunidad" /></div>
+        <div class="col-lg-3 col-md-6 col-sm-12"><img src="{% static 'images/participa2.png' %}" alt="Conoce a los candidatos" /></div>
+        <div class="col-lg-3 col-md-6 col-sm-12"><img src="{% static 'images/participa3.png' %}" alt="Elige a tu candidato" /></div>
+        <div class="col-lg-3 col-md-6 col-sm-12"><img src="{% static 'images/participa4.png' %}" alt="Comparte y dale voz a tu comunidad" /></div>
+    </div>
+
+    <div class="diagram">
+        <a href="{% url 'public:participa' %}" class="btn cta-process mt-4">
+            Participa
+        </a>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-header">
+        ¿Cómo funciona el proceso?
+    </div>
+
+    <div class="section-body">
+        <div class="diagram">
+            <img src="https://static.pando.org.mx/assets/images/ci/proceso.png" alt="">
+            <a href="{% url 'public:proceso' %}" class="btn cta-process mt-4">
+                Conoce más sobre el proceso
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block scripts %}
+
+    <!--   Site Files   -->
+	<script src="{% static 'site/public_landing.min.js' %}?version={{ APP.version }}"></script>
+
+
+{% endblock scripts %}

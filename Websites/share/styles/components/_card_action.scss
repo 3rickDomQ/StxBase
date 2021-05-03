@@ -1,0 +1,37 @@
+.list-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.main-icon {
+    font-size: 2rem;
+}
+
+.card-header {
+    padding: 1rem 1rem .5rem;
+
+    .card-head-row {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        @include mq($from: tablets) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.list-action {
+    display: flex;
+    flex-direction: column;
+
+    button:first-child {
+        margin-bottom: 1rem;
+    }
+}

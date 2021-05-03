@@ -1,0 +1,1 @@
+import './public_participa.scss'

@@ -1,0 +1,134 @@
+{% extends "master/public_master.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'site/public_participa.min.css' %}?version={{ APP.version }}">
+
+{% endblock css %}
+
+{% block content %}
+<!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <div class="content-wrap">
+
+        <div class="info">
+            <div class="info-title">
+                PARTICIPA
+            </div>
+
+            <p class="info-main">
+                Tu voz es importante
+            </p>
+
+            <p class="info-submain">
+                Sé parte del proceso de elección y apoya al candidato que mejor te represente.
+            </p>
+
+            <div class="info-body">
+                <img src="https://static.pando.org.mx/assets/images/ci/participa.png" alt="">
+            </div>
+
+            <div class="info-option">
+                <div class="option-icon">
+                    <div class="bullet black">
+                        <span>1</span>
+                    </div>
+                    <div class="text">
+                        Identifica:
+                    </div>
+                </div>
+                <div class="option-text">
+                    Reflexiona y comparte en este portal cuáles son los principales problemas que afectan a tu comunidad y que son relevantes para la candidatura <a href="{% url 'public:campaign-retrieve' 1 %}">local</a> o la <a href="{% url 'public:campaign-retrieve' 2 %}">municipal</a>.
+                </div>
+            </div>
+
+            <div class="info-option">
+                <div class="option-icon">
+                    <div class="bullet black">
+                        <span>2</span>
+                    </div>
+                    <div class="text">
+                        Conoce:
+                    </div>
+                </div>
+                <div class="option-text">
+                    Entra al perfil de cada candidato. Valora, compara sus propuestas y conoce la calificación que ha recibido por parte de los expertos y nuestro sistema de evaluación de <strong>Inteligencia Artificial</strong>.
+                </div>
+            </div>
+
+            <div class="info-option">
+                <div class="option-icon">
+                    <div class="bullet black">
+                        <span>3</span>
+                    </div>
+                    <div class="text">
+                        Elige:
+                    </div>
+                </div>
+                <div class="option-text">
+                    Selecciona al candidato mejor calificado para atender y resolver las necesidades de tu comunidad y apóyalo para que te represente en las próximas elecciones.
+                </div>
+            </div>
+
+            <div class="info-option">
+                <div class="option-icon">
+                    <div class="bullet black">
+                        <span>4</span>
+                    </div>
+                    <div class="text">
+                        Comparte:
+                    </div>
+                </div>
+                <div class="option-text">
+                    Dale voz a tu comunidad. Invita a tus amigos, vecinos, compañeros de trabajo y familia a elegir a su Candidatx Ideal. <br>¿Conoces a un Candidatx Ideal? <a href="mailto:info@candidatxideal.org?bcc=pando@candidatxideal.org&subject=Postulación Candidatx Ideal">¡Escríbenos!</a>
+                </div>
+                <div
+                    class="text-center mt-4 fb-share-button button button-white-outline"
+                    data-size="large"
+                    data-href="{{ request.path }}"
+                    data-layout="button_count">
+                </div>
+                <div class="row">
+                    <div class="col option-text text-center mt-4">
+                        <a class="" href="javascript:window.location=waCurrentPage();">Comparte en Whatsapp <i class="fa fa-whatsapp fa-4x"></i></a>
+                        <script>
+                            waCurrentPage = function() {return encodeURI("whatsapp://send?text=Te invito a participar en: " + 'https://' + window.location.hostname + window.location.pathname);}
+                        </script>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-option">
+                <div class="option-icon">
+                    <div class="text">
+                        Postúlate:
+                    </div>
+                </div>
+                <div class="option-text">
+                    Si tú eres la persona ideal, ¡¿qué esperas?! Presenta tu postulación o la de quien creas es ideal para este proceso dando click en el siguiente botón: <a class="typeform-share button btn" href="https://form.typeform.com/to/yqJMZU77?typeform-medium=embed-snippet" data-mode="popup" style="display:inline-block;text-decoration:none;background-color:#3A7685;color:white;cursor:pointer;font-family:Nunito,sans-serif;font-size:16px;line-height:40px;text-align:center;margin:0;height:40px;padding:0px 26px;border-radius:7px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" data-size="100" target="_blank">Abrir formulario </a> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock content %}
+
+{% block scripts %}
+
+    <!--   Site Files   -->
+	<script src="{% static 'site/public_participa.min.js' %}?version={{ APP.version }}"></script>
+
+{% endblock scripts %}

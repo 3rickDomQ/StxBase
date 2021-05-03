@@ -1,0 +1,187 @@
+@import '../../../share/styles/layouts/breakpoints';
+
+@import '../styles/bases/colors';
+@import '../styles/components/image_round';
+@import '../styles/components/text';
+@import '../styles/components/button';
+@import '../styles/components/campaign_header';
+
+.content-body {
+    background-color: $color-brand-main !important;
+
+    .container-fluid {
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+}
+
+.campaign {
+    background-color: $color-brand-main;
+    height: 100%;
+
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+
+    .campaign-body {
+        background-color: #fff;
+        border-radius: 5px;
+
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+        transition: 0.3s;
+    }
+}
+
+.candidate {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem;
+    box-sizing: border-box;
+
+    @include mq($from: tablets) {
+        padding: 2rem 2rem;
+    }
+
+    &-header {
+        display: flex;
+        flex-direction: column;
+
+        @include mq($from: tablets) {
+            flex-direction: row;
+        }
+
+        .header-image {
+            padding: 0 1rem;
+            box-sizing: border-box;
+        }
+
+        .header-description {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            box-sizing: border-box;
+
+            .description-top {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 1rem;
+
+                @include mq($from: tablets) {
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
+
+                .candidate-name {
+                    font-size: 1.4rem;
+                    font-weight: 600;
+                    color: $color-text-main;
+                }
+            }
+
+            .description-middle {
+                display: flex;
+                margin-bottom: 1rem;
+
+                a {
+                    margin-right: 1rem;
+                }
+            }
+
+            .description-bottom {
+
+            }
+        }
+    }
+
+    &-body {
+        display: flex;
+        flex-direction: column;
+
+        @include mq($from: tablets) {
+            flex-direction: row;
+        }
+
+        .left {
+            display: flex;
+            flex-direction: column;
+
+            .profile-title {
+                font-size: 1.4rem;
+                font-weight: 600;
+                color: $color-brand-main;
+
+                margin-bottom: 1rem;
+            }
+
+            .profile-desc {
+                color: $color-text-regular;
+            }
+        }
+
+        .right {
+            display: flex;
+        }
+    }
+}
+
+.social {
+    display: none;
+
+    @include mq($from: tablets) {
+        display: flex;
+        flex-direction: row;
+
+        padding: 0 1rem;
+        margin-right: 1rem;
+    }
+
+    &-opt {
+        font-size: 1.2rem;
+        margin-left: 1rem;
+        color: $color-brand-main;
+    }
+}
+
+.vota-section {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    background-color: $color-brand-main;
+    border-radius: 6px;
+    padding: 1rem;
+
+    @include mq($from: tablets) {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    &-acction {
+        margin-right: 1rem;
+    }
+
+    &-text {
+        color: #fff;
+    }
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+
+    padding: 1rem 1rem;
+    box-sizing: border-box;
+
+    @include mq($from: tablets) {
+        padding: 2rem 2rem;
+    }
+
+    .timeline-body {
+
+        padding: 0 1rem;
+
+        @include mq($from: tablets) {
+            padding: 0 2rem;
+        }
+    }
+}

@@ -1,0 +1,62 @@
+body {
+    background: #ebeef6;
+}
+
+.user {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}
+
+    .user-icon {
+        font-size: 2.5rem;
+        color: #8C9498;
+    }
+
+    .master-user-name {
+        width: 9rem;
+    }
+
+.main-panel {
+    height: inherit !important;
+}
+
+    .main-panel-container {
+        min-height: calc(100% - 4.5rem);
+    }
+
+    .logo-header {
+        background-color: #3697E1;
+    }
+
+        .logo-header .logo {
+            color: white;
+        }
+
+@media (min-width: 768px) {
+    /* .logo-abbr {
+        display: none !important;
+    } */
+    .brand-title {
+        margin-left: 0 !important;
+    }
+    .brand-logo {
+        display: flex !important;
+        justify-content: center !important;
+    }
+}
+
+
+@media (max-width: 992px) {
+    .main-panel-container {
+        padding-top: 4rem;
+    }
+}
+
+.logo-header {
+    justify-content: center;
+}
+
+    .navbar-brand {
+        height: 3rem;
+        width: auto;
+    }

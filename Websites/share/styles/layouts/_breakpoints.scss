@@ -1,0 +1,14 @@
+@import '../~sass-mq';
+
+$mq-responsive: true;
+
+$mq-breakpoints: (
+    mobile_portrail: 360px,
+    mobile_landscape: 568px,  // 576px,
+    tablets:  768px,
+    laptops: 992px,
+    desktops: 1200px,
+    desktops-big: 1400px,
+    hd: 1900px,
+    retina: 2000px
+)

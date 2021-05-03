@@ -1,0 +1,61 @@
+.campaign-header {
+    padding: 1.5rem 1.5rem;
+    box-sizing: border-box;
+    background-color: #ffffff;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    @include mq($from: tablets) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &-left {
+        margin: 1.5rem 0;
+
+        @include mq($from: tablets) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    &-middle {
+        .campaign-name {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &-icon {
+                img {
+                    height: 4rem;
+                }
+            }
+
+            &-text {
+                font-size: 1.7rem;
+                font-weight: 600;
+                color: $color-brand-primary;
+
+                @include mq($from: tablets) {
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+
+    &-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1.5rem 0;
+        .btn{
+            .fa-whatsapp{
+                color: #25d366;
+            }
+        }
+    }
+}

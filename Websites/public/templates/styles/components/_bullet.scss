@@ -1,0 +1,32 @@
+.bullet {
+    display: flex;
+    justify-content: center;
+
+    span {
+        color: #ffffff;
+        border-radius: 50%;
+
+        width: 2.5rem;
+        height: 2.5rem;
+
+        font-weight: 600;
+        font-size: 1.4rem;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.green {
+    span {
+        background-color: $color-brand-main;
+    }
+}
+
+.black {
+    span {
+        background-color: $color-brand-primary;
+    }
+}

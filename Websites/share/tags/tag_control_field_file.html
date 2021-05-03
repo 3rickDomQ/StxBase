@@ -1,0 +1,29 @@
+{% load widget_tweaks %}
+
+<div class="col-md-6 col-lg-{{size}}">
+    <div class="form-group {% if form_field.errors %} has-error has-feedback {% endif %}">
+        <label for="{{ form_field.id_for_label }}">
+            {{ form_field.label }}
+
+            {% if form_field.field.required is False %}
+                <span class="text-label-optional">
+                    (opcional)
+                </span>
+            {% endif %}
+        </label>
+        {{ form_field|add_class:"form-control" }}
+
+        <small id="{{form_field.id_for_label}}"
+        class="form-text text-muted">
+            {{form_field.help_text}}
+        </small>
+
+        {% if form_field.errors %}
+            {% for error in form_field.errors %}
+            <small class="form-text text-danger">
+                {{ error }}
+            </small>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>

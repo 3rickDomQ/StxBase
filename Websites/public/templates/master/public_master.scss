@@ -1,0 +1,167 @@
+@import '../../../share/styles/layouts/breakpoints';
+@import '../styles/bases/fonts';
+@import '../styles/bases/colors';
+
+.header-top {
+    width: 100%;
+    // height: 3rem;
+    background-color: #ffffff;
+    padding: .5rem .75rem;
+
+    display: flex;
+    justify-content: space-between;
+
+    .mobile-only{
+        display: none;
+    }
+
+    &-left {
+        width: 50%;
+        display: flex;
+        justify-content: flex-start;
+
+        .logo-main {
+
+            img {
+                height: 2rem;
+                width: auto;
+
+                @include mq($from: tablets) {
+                    height: 3rem;
+                }
+            }
+        }
+    }
+
+    &-right {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        .top {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            margin-bottom: .8rem;
+
+            .social {
+                display: none;
+
+                @include mq($from: tablets) {
+                    display: flex;
+                    flex-direction: row;
+
+                    padding: 0 1rem;
+                    margin-right: 1rem;
+                }
+
+                &-opt {
+                    margin-left: 1rem;
+                    color: $color-text-regular;
+                }
+            }
+            .login {
+                // display: none;
+                color: $color-text-regular;
+                font-weight: 600;
+
+                @include mq($from: tablets) {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+
+                    // width: 7rem;
+                    text-align: center;
+
+                    span {
+                        margin-right: .5rem;
+                        font-size: .8rem;
+                    }
+
+                    i {
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
+        .bottom {
+            display: flex;
+            justify-content: flex-end;
+            .mobile-only{
+                display: block;
+            }
+            .menu {
+                display: none;
+
+                @include mq($from: tablets) {
+                    display: flex;
+                    justify-content: flex-end;
+                }
+
+                &-option {
+                    padding: 0.5rem 1rem;
+                    margin-left: 1rem;
+                    font-size: .8rem;
+                    font-weight: 600;
+                    color: $color-text-regular
+                }
+            }
+        }
+    }
+}
+
+.content-body {
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: white !important;
+
+    .container-fluid {
+        padding: 0 !important;
+    }
+}
+
+
+.foot {
+    background-color: black;
+    justify-content: center;
+    padding: 2rem 0;
+
+    .ideal-logo {
+        margin-right: 1rem;
+
+        img {
+            height: 2.5rem;
+
+            @include mq($from: tablets) {
+                height: 3.5rem;
+            }
+
+        }
+    }
+
+    .text {
+        color: #fff;
+        margin-right: 1rem;
+
+        @include mq($from: tablets) {
+            font-size: 1.3rem;
+        }
+        &.bulletin{
+            text-decoration: underline;
+            color: #fafafa;
+            font-weight: 700;
+        }
+    }
+
+    .pando-logo {
+
+        img {
+            height: 1.5rem;
+
+            @include mq($from: tablets) {
+                height: 2rem;
+            }
+        }
+    }
+}

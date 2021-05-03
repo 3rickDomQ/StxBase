@@ -1,0 +1,51 @@
+{% extends "master/backoffice_master_out.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% load tags_controls %}
+{% load tags_feedback %}
+
+{% block css %}
+
+    <link rel="stylesheet" href="{% static 'site/backoffice_start.min.css' %}?version={{ APP.version }}">
+{% endblock css %}
+
+{% block content %}
+
+<div class="authincation h-100">
+    <div class="container h-100">
+        <div class="row justify-content-center h-100 align-items-center">
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-body-title">Hola, {{USER.email}}</h1>
+                        <h4 class="card-body-subtitle">
+                            Por motivos de seguridad se necesita configurar una nueva contraseña para tu cuenta
+                        </h4>
+                        <form action="" method="post"> {% csrf_token %}
+                            {% tag_feedback_messages messages %}
+                            {% tag_feedback_form_errors form %}
+
+                            {% tag_control_field_text form.password1 _size="12" %}
+                            {% tag_control_field_text form.password2 _size="12" %}
+                            {% tag_control_field_text form.email _hidden=True %}
+
+                            <div class="form-group">
+                                <button type="submit"
+                                class="btn btn-lg btn-primary btn-block text-uppercase mb-4">
+                                    Continuar
+                                </button>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{% static 'site/backoffice_start.min.js' %}?version={{ APP.version }}"></script>
+{% endblock scripts %}

@@ -1,0 +1,1 @@
+import './public_person_retrieve.scss'

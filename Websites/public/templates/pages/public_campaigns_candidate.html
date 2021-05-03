@@ -1,0 +1,145 @@
+
+{% extends "master/public_master.html" %}
+{% load static %}
+{% load tags_feedback %}
+{% load widget_tweaks %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'site/public_campaigns_candidate.min.css' %}?version={{ APP.version }}">
+{% endblock css %}
+
+{% block content %}
+
+    <input type="hidden" id="campaign_input" value={{data.campaign.id|safe}}>
+    <input type="hidden" id="candidate_input" value={{data.candidate.id|safe}}>
+
+    <div class="campaign-header">
+        {% comment %} <div class="campaign-header-left">
+            <a href="#" class="button button-white-outline">
+                COMPARTIR PERFIL
+            </a>
+        </div> {% endcomment %}
+        <div class="campaign-header-middle">
+            <div class="campaign-name">
+                <span class="campaign-name-icon">
+                    <img src={% static 'images/decoration/ubicacion.png' %} >
+                </span>
+                <span class="campaign-name-text">
+                    {{data.campaign.name}}
+                </span>
+            </div>
+        </div>
+        <div class="campaign-header-right">
+            <a href="{% url 'public:candidates' %}" class="button button-white-outline">
+                VER MÁS CANDIDATOS
+            </a>
+        </div>
+    </div>
+
+    <div class="campaign">
+        <div class="campaign-body">
+            <div class="candidate">
+                <div class="candidate-header">
+                    <div class="header-image">
+                        <div class="image-round">
+                        {% if data.candidate.profile.photo %}
+                            <img class="image-round" alt="100%x280" src="{{data.candidate.profile.photo.url}}">
+                        {% else %}
+                            <img class="image-round" alt="100%x280" src="{% static 'images/generic/person.png' %}">
+                        {% endif %}
+                        </div>
+                    </div>
+                    <div class="header-description">
+                        <div class="description-top">
+                            <div class="candidate-name">
+                                {{data.candidate.name}}
+                            </div>
+                            <div class="social">
+                                <a class="social-opt" href="#">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </a>
+                                <a class="social-opt" href="#">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
+                                <a class="social-opt" href="#">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="description-middle">
+                        {% for file in data.candidate.profile.files.all %}
+                            <a href={{file.file.url}}
+                            target="_blank"
+                            type="button" class="button button-green">
+                                Descargar: {{file.description}}
+                            </a>
+                        {% endfor %}
+                        </div>
+                        <div class="description-bottom">
+                            <div class="vota-section">
+                                <div class="vota-section-acction">
+                                    <a href="{% url 'public:campaign-candidate-vote' data.campaign.id data.candidate.id %}" class="button button-white">
+                                        APOYA
+                                    </a>
+                                </div>
+                                <div class="vota-section-text">
+                                    <span>
+                                        para candidato
+                                    </span>
+                                    <span>
+                                        {{data.campaign.name}}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="candidate-body">
+                    <div class="left">
+                        <div class="profile-title">
+                            Perfil
+                        </div>
+                        <div class="profile-desc">
+                            {{data.candidate.profile.description}}
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="chart">
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if data.candidate.profile.twitter_list %}
+    <div class="timeline">
+        <div class="timeline-body">
+            <a class="twitter-timeline"
+            data-height="800"
+            href="{{data.candidate.profile.twitter_list}}">
+                A Twitter List by pando
+            </a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+            </script>
+        </div>
+    </div>
+    {% endif %}
+
+
+{% endblock content %}
+
+{% block scripts %}
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+    <!--   Site Files   -->
+	<script src="{% static 'site/public_campaigns_candidate.min.js' %}?version={{ APP.version }}"></script>
+
+{% endblock scripts %}
+
+
+
+

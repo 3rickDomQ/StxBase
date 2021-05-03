@@ -1,0 +1,31 @@
+.card {
+    height: auto !important;
+
+    .card-title {
+        display: flex;
+        // flex-direction: row;
+        // align-items: center;
+
+        .card-title-text {
+            margin-right: .4rem;
+        }
+
+        .card-title-btn {
+            background: none;
+            color: $color-secondary;
+            border: none;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            i {
+                font-size: .8rem;
+            }
+        }
+    }
+}
