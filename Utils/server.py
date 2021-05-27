@@ -11,14 +11,14 @@ from django.db import IntegrityError
 import requests
 
 # Own's Libraries
-from Utils.errors import NoRecordFoundError
-from Utils.errors import NoRecordsFoundError
-from Utils.errors import MultipleRecordsFoundError
-from Utils.errors import DataBaseError
-from Utils.errors import ServerError
-from Utils.errors import DuplicateEntryError
+from .errors import NoRecordFoundError
+from .errors import NoRecordsFoundError
+from .errors import MultipleRecordsFoundError
+from .errors import DataBaseError
+from .errors import ServerError
+from .errors import DuplicateEntryError
 
-from Utils.data import Scribe
+from .data import Scribe
 
 logger = logging.getLogger("app_logger")
 

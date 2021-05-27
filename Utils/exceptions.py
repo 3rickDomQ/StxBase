@@ -8,7 +8,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import exception_handler
 
-from Utils.errors import BusinessError
+from .errors import BusinessError
 
 
 def base_exception_handler(exc, context):
@@ -28,6 +28,12 @@ def base_exception_handler(exc, context):
         )
 
     if isinstance(exc, DValidation):
+        return Response(
+            {'detail': exc.message},
+            status=status.HTTP_400_BAD_REQUEST
+        )
+
+    if isinstance(exc, RValidation):
         return Response(
             {'detail': exc.message},
             status=status.HTTP_400_BAD_REQUEST

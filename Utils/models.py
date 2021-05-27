@@ -1,6 +1,8 @@
 # Django's Libraries
 from django.db import models
 
+from simple_history.models import HistoricalRecords
+
 
 class AppModel(models.Model):
     created_date = models.DateTimeField(
@@ -33,6 +35,7 @@ class AppModel(models.Model):
         blank=True,
         null=True
     )
+    history = HistoricalRecords(inherit=True)
 
     class Meta:
         abstract = True

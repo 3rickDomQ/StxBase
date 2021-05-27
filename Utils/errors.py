@@ -144,3 +144,4 @@ class ServerError(Exception):
     """Error que se lanza cuando un request no se termina
     exitosamente.
     """
+    pass
