@@ -6,7 +6,7 @@ DEFAULT_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.humanize'
+    'django.contrib.humanize',
 ]
 
 THIRD_PARTY_APPS = [
@@ -16,8 +16,8 @@ THIRD_PARTY_APPS = [
     'rest_framework',
     'simple_history',
     'storages',
+    'widget_tweaks',
     'Utils.apps.UtilsConfig',
-    'widget_tweaks'
 ]
 
 OWN_DATA_APPS = [
@@ -30,7 +30,7 @@ OWN_BUSINESS_APPS = [
 
 OWN_WEBSITE_APPS = [
     'backoffice.apps.BackofficeConfig',
-    'public.apps.PublicConfig'
+    'public.apps.PublicConfig',
 ]
 
 OWN_WEBAPI_APPS = [

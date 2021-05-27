@@ -15,20 +15,12 @@ from Utils.models import AppModel
 from Utils.models import KeyCharField
 # from Utils.models import NameCharField
 from Utils.models import DescriptionCharField
-
 from Utils.managers import UserEmailManager
 from Utils.validators import ModelValidator
 
 
-USER_CAMPAING_ROLE = (
-    ('ORGANIZADOR', 'Organizador'),
-    ('CANDIDATO', 'Candidato'),
-    ('COLABORADOR', 'Colaborador'),
-    ('VALUADOR', 'Valuador'),
-)
-
-
 class User(AbstractBaseUser, AppModel, PermissionsMixin):
+
     email = models.EmailField(
         _('email'),
         unique=True,
@@ -83,14 +75,14 @@ class User(AbstractBaseUser, AppModel, PermissionsMixin):
             'el sitio.'
         )
     )
-    # is_admin = models.BooleanField(
-    #     _('administrador'),
-    #     default=False,
-    #     help_text=_(
-    #         'Un usuario administrador tienen privilegios totales '
-    #         'sobre el sitio.'
-    #     )
-    # )
+    is_admin = models.BooleanField(
+        _('administrador'),
+        default=False,
+        help_text=_(
+            'Un usuario administrador tienen privilegios totales '
+            'sobre el sitio.'
+        )
+    )
     first_login = models.BooleanField(
         "¿Primer ingreso?",
         null=True,
@@ -129,14 +121,6 @@ class User(AbstractBaseUser, AppModel, PermissionsMixin):
         null=True,
         blank=True
     )
-    last_campaign_rol = models.CharField(
-        verbose_name='ultimo rol en campaña',
-        max_length=15,
-        null=True,
-        blank=True,
-        choices=USER_CAMPAING_ROLE
-    )
-    history = HistoricalRecords()
 
     objects = UserEmailManager()
     EMAIL_FIELD = 'email'
@@ -155,6 +139,7 @@ class User(AbstractBaseUser, AppModel, PermissionsMixin):
 
 
 class Module(models.Model):
+
     key = models.CharField(
         verbose_name='clave',
         max_length=50,
@@ -198,6 +183,7 @@ class Module(models.Model):
 
 
 class Action(AppModel):
+
     key = KeyCharField(
         verbose_name="clave",
         unique=True,
@@ -222,7 +208,6 @@ class Action(AppModel):
         blank=False,
         null=True
     )
-    history = HistoricalRecords()
 
     class Meta:
         verbose_name = 'Acción'
@@ -233,6 +218,7 @@ class Action(AppModel):
 
 
 class Permission(models.Model):
+
     position = models.ForeignKey(
         'Position',
         verbose_name='puesto',
@@ -267,6 +253,7 @@ class Permission(models.Model):
 
 
 class Page(AppModel):
+
     key = models.CharField(
         verbose_name="clave",
         unique=True,
@@ -315,7 +302,6 @@ class Page(AppModel):
         blank=False,
         null=True
     )
-    history = HistoricalRecords()
 
     class Meta:
         verbose_name = 'Página'
@@ -326,6 +312,7 @@ class Page(AppModel):
 
 
 class PageAllowed(AppModel):
+
     position = models.ForeignKey(
         'Position',
         verbose_name='puesto',
@@ -347,7 +334,6 @@ class PageAllowed(AppModel):
         blank=False,
         null=True
     )
-    history = HistoricalRecords()
 
     class Meta:
         verbose_name = 'Opción de menú'
@@ -356,6 +342,7 @@ class PageAllowed(AppModel):
 
 
 class Position(models.Model):
+
     name = models.CharField(
         verbose_name='nombre',
         max_length=50,
@@ -408,6 +395,7 @@ class Position(models.Model):
 
 
 class ActivityLog(AppModel):
+
     activity = models.CharField(
         verbose_name='acción',
         max_length=100,
@@ -441,6 +429,7 @@ TYPES_SERVICE = (
 
 
 class ThirdPartyService(models.Model):
+
     name = models.CharField(
         verbose_name='nombre',
         max_length=100,
@@ -510,6 +499,7 @@ class ThirdPartyService(models.Model):
 
 
 class GlobalVariable(models.Model):
+
     key = models.CharField(
         verbose_name='clave',
         max_length=100,
@@ -538,6 +528,7 @@ class GlobalVariable(models.Model):
 
 
 class Integration(models.Model):
+
     name = models.CharField(
         verbose_name='nombre',
         max_length=144,
