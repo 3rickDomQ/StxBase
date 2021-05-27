@@ -15,10 +15,10 @@ from .base import aws
 
 
 # App configuration
-APP_CLAVE = "PON"
-APP_NAME = "Candidatx Ideal"
+APP_CLAVE = "SWB"
+APP_NAME = "Sintaxyz Web Base"
 APP_YEAR_RELEASE = "2021"
-APP_VERSION = "0.0.50"
+APP_VERSION = "0.0.1"
 
 JET_DEFAULT_THEME = 'light-blue'
 

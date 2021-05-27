@@ -22,8 +22,6 @@ THIRD_PARTY_APPS = [
 
 OWN_DATA_APPS = [
     'core.apps.CoreConfig',
-    'process.apps.ProcessConfig',
-    'catalogues.apps.CataloguesConfig'
 ]
 
 OWN_BUSINESS_APPS = [

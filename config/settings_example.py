@@ -14,9 +14,9 @@ from .base import rest
 
 
 # App configuration
-APP_CLAVE = "AVD"
-APP_NAME = "PANDO"
-APP_YEAR_RELEASE = "2020"
+APP_CLAVE = "SWB"
+APP_NAME = "Sintaxyz Web Base"
+APP_YEAR_RELEASE = "2021"
 APP_VERSION = "0.0.1"
 
 JET_DEFAULT_THEME = 'light-blue'
