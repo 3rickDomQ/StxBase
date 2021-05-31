@@ -185,7 +185,7 @@ class UserAdmin(SimpleHistoryAdmin):
         if user is None:
             raise Http404(
                 _('%(name)s object with primary key %(key)r '
-                  'does not exist.') % {
+                'does not exist.') % {
                     'name': force_text(self.model._meta.verbose_name),
                     'key': escape(id),
                 }

@@ -1,18 +1,16 @@
 # Python's Libriares
-import logging
 import os
 import json
+import logging
 
 # Django's Libraries
 from django.db import transaction
 from django.db.models import Q
 from django.db.models import F
 from django.conf import settings
-
 from django.utils import timezone
 from django.utils.http import urlsafe_base64_encode
 from django.utils.encoding import force_bytes
-
 from django.contrib.auth import login
 from django.contrib.auth import authenticate
 from django.contrib.auth import logout
@@ -20,12 +18,10 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.tokens import default_token_generator
 from django.contrib import messages
 from django.core.files import File
-
 from django.contrib.auth import password_validation
 from django.core.mail.backends.smtp import EmailBackend
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.exceptions import ValidationError
-
 from django.template.loader import render_to_string
 from django.core.files.storage import FileSystemStorage
 
@@ -33,7 +29,6 @@ from django.core.files.storage import FileSystemStorage
 
 # Own's Libraries
 from Utils.server import DataBase
-
 from Utils.data import EmailSubjectTemplate
 from Utils.data import EmailBodyTemplate
 from Utils.data import Scribe
@@ -51,6 +46,10 @@ from Utils.server import Postman
 from core.models import User
 
 from Business.services import UserService
+from Business.services import PositionService
+from Business.services import PageService
+from Business.services import PageAllowedService
+from Business.services import SmtpService
 
 
 logger = logging.getLogger("app_logger")
@@ -400,8 +399,8 @@ class BackofficeWeb(object):
 
         messages.success(
             _request,
-            "Se envió un email con instrucciones "
-            "para establecer una nueva contraseña."
+            "Se envió un email con instrucciones\
+            para establecer una nueva contraseña."
         )
 
     @classmethod
@@ -529,8 +528,8 @@ class BackofficeWeb(object):
 
             messages.success(
                 _request,
-                "Usuario creado con exito. Se envió un email con instrucciones "
-                "para activar la cuenta."
+                "Usuario creado con exito. Se envió un email con instrucciones\
+                para activar la cuenta."
             )
 
             return PageDto(self.url_users)
